@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :matches
   has_many :reviews
   has_many :messages
+  has_many :booked_matches, through: :bookings, source: :match
 end
