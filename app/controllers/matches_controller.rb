@@ -3,16 +3,20 @@ class MatchesController < ApplicationController
     @matches = Match.all  
   end
   
-  def show    
+  def show
+    @match = Match.find(params[:id])     
   end
 
   def new
-    @matches = Match.all    
+    @venue = Venue.find(params[:venue_id])
+    @match = Match.new    
   end
 
   def create
+    @venue = Venue.find(params[:venue_id])
     @match = Match.new(match_params)
-    if @match.save
+    @match.venue = @venue
+    if @match.save!
       redirect_to match_path(@match)
     else
       render 'new'
@@ -20,6 +24,7 @@ class MatchesController < ApplicationController
 end
 
   def edit
+    @match = Matches.find(params[:id])
   end
 
   def update
@@ -36,11 +41,7 @@ end
   end
 
   private
-
-  def set_match
-    @match = Match.find(params [:id])
-  end
-
+  
   def match_params
     params.require(:match).permit(:skill_level, :no_of_players, :start_time, :end_time,
     :match_description, :gender)
