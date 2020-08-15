@@ -1,32 +1,33 @@
 class VenuesController < ApplicationController
 
   def index
-    @venues = Venues.all
+    @venues = Venue.all
   end
 
   def show
-    @venue = Venues.find(params[:id])
+    @venue = Venue.find(params[:id])
   end
 
   def new
-    @venue = Venues.new
+    @venue = Venue.new
   end
 
   def create
-    @venue = Venues.new(strong)
+    @venue = Venue.new(strong)
     @venue.user = current_user
     if @venue.save
       # redirect_to 
     else
-      render 'new'    
+      render 'new'
+    end  
   end
 
   def edit
-    @venue = Venues.find(params[:id])
+    @venue = Venue.find(params[:id])
   end
 
   def update
-    @venue = Venues.find(params[:id])
+    @venue = Venue.find(params[:id])
     if @venue.update(strong)
       # redirect_to
     else
