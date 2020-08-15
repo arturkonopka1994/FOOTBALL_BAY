@@ -4,7 +4,7 @@ class MatchesController < ApplicationController
   end
   
   def show
-    @match = Matches.find(params[:id])     
+    @match = Match.find     
   end
 
   def new
