@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
     @match = Match.find(params[:match_id])
     @user = User.find(params[:user_id])
     @booking = Booking.new
+  end
 
   def create
     @match = Match.find(params[:match_id])
@@ -13,6 +14,7 @@ class BookingsController < ApplicationController
       redirect_to match_path(@match)
     else
       render 'new'
+    end
   end
 
   def destroy
