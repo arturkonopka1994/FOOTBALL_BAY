@@ -1,8 +1,9 @@
 class MessagesController < ApplicationController
-    def new
+  def new
     @chatroom = Chatroom.find(params[:chatroom_id])
     @user = User.find(params[:user_id])
     @message = Message.new
+  end
 
   def create
     @chatroom = Chatroom.find(params[:chatroom_id])
@@ -13,6 +14,7 @@ class MessagesController < ApplicationController
       redirect_to chatroom_path(@chatroom)
     else
       render 'new'
+    end
   end
 
   def destroy
