@@ -8,14 +8,11 @@ class MatchesController < ApplicationController
   end
 
   def new
-    @venue = Venue.find(params[:venue_id])
     @match = Match.new    
   end
 
   def create
-    @venue = Venue.find(params[:venue_id])
     @match = Match.new(match_params)
-    @match.venue = @venue
     if @match.save!
       redirect_to match_path(@match)
     else
@@ -24,7 +21,7 @@ class MatchesController < ApplicationController
 end
 
   def edit
-    @match = Matches.find(params[:id])
+    @match = Match.find(params[:id])
   end
 
   def update
@@ -44,7 +41,7 @@ end
   
   def match_params
     params.require(:match).permit(:skill_level, :no_of_players, :start_time, :end_time,
-    :match_description, :gender)
+    :match_description, :gender, :venue)
   end  
   
 end
