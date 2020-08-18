@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :matches do
     resources :bookings, only: [:new, :create]
   end
-  resources :venues, only: [:create, :index, :show, :edit] do
+  resources :venues, only: [:create, :index, :show, :edit, :new] do
     resources :reviews, only: [:create]
   end
   resources :chatroom, only: [:index, :show] do
