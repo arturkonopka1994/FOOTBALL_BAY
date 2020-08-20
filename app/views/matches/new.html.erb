@@ -1,1 +1,15 @@
-<h1>matches new</h1>
+<div class="container">
+
+  <h1>New Match</h1>
+
+  <%= simple_form_for(@venue) do |v| %>
+  <%= v.input :no_of_players %>
+  <%= v.input :start_time %>
+  <%= v.input :end_time %>
+  <%= v.input :gender %>
+  <%= v.input :title %>
+  <%= v.input :description %>
+  <%= v.button :submit %>
+  <% end %>
+
+</div>
