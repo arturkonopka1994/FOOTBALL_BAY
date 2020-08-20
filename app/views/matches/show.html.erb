@@ -1,1 +1,2 @@
-<h1><%= @match.name.upcase %></h1>
+<h1><%= @match.start_time %></h1>
+<%= link_to 'Booking', match_bookings_path(@match), method: :post  %>
