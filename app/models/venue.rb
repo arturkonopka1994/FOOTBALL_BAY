@@ -1,4 +1,4 @@
 class Venue < ApplicationRecord
-	has_many :matches
-	has_many :reviews
+	has_many :matches, dependent: :destroy
+	has_many :reviews, dependent: :destroy
 end
