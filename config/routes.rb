@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  resources :matches, :except [:new, :create] do
+  resources :matches, except: [:new, :create] do
     resources :bookings, only: [:new, :create]
   end
-  resources :venues, only: [:create, :index, :show, :edit] do
+  resources :venues, only: [:create, :index, :show, :edit, :new] do
     resources :reviews, only: [:create]
     resources :matches, only: [:new, :create]
   end
