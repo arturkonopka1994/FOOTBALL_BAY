@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Venue.destroy_all
+User.destroy_all
+Matches.destroy_all
+
 VENUES = [
   (name: "Old Trafford",
     postcode: "M16 0RA",
@@ -54,6 +58,3 @@ MATCHES = [
     gender: "female",
     end_time: "8pm")
 ]
-
-Venue.destroy_all
-User.destroy_all
