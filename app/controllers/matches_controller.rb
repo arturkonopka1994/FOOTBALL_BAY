@@ -8,7 +8,8 @@ class MatchesController < ApplicationController
   end
 
   def new
-    @match = Match.new    
+    @match = Match.new
+    @venue = Venue.find(params[:venue_id])    
   end
 
   def create
@@ -36,7 +37,8 @@ end
     @match.destroy
     redirect_to matches_path
   end
-  
+
+    
   private
 
   def match_params
