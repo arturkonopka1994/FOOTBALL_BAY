@@ -2,14 +2,13 @@
 
   <h1>New Match</h1>
 
-  <%= simple_form_for(@venue) do |v| %>
-  <%= v.input :no_of_players %>
-  <%= v.input :start_time %>
-  <%= v.input :end_time %>
-  <%= v.input :gender %>
-  <%= v.input :title %>
-  <%= v.input :description %>
-  <%= v.button :submit %>
+  <%= simple_form_for [@venue, @match] do |m| %>
+  <%= m.input :title %>
+  <%= m.input :no_of_players %>
+  <%= m.input :start_time %>
+  <%= m.input :end_time %>
+  <%= m.input :description %>
+  <%= m.button :submit %>
   <% end %>
 
 </div>
