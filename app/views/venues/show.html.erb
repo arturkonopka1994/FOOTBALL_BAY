@@ -4,7 +4,7 @@
 
 <div class="container">
   <h1><%= @venue.name.upcase %></h1>
-  <%= cl_image_tag @venue.photo.key, height: 300, width: 400, crop: :fill %>
+  <%# <%= cl_image_tag @venue.photo.key, height: 300, width: 400, crop: :fill %> %>
   <%= link_to 'create match', new_venue_match_path(@venue) %>
   <%= simple_form_for [@venue, @review] do |r| %>
     <%= r.rich_text_area :content %>
