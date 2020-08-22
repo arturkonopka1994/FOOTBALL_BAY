@@ -12,6 +12,14 @@ class Match < ApplicationRecord
   def players
     users
   end
+
+  def spots_left
+    no_of_players - self.bookings.count
+  end
+
+  def spots_available?
+    spots_left.zero? || spots_left.negative?
+  end
 end
 
   

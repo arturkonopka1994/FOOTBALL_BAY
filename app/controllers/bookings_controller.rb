@@ -10,9 +10,10 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     @booking.match = @match
     @booking.user = current_user
-    if @booking.save!
+    if @booking.save! && @match.spots_available?
       redirect_to match_path(@match)
     else
+      flash[:notice] = "Fully booked"
       render 'match/show'
     end
   end

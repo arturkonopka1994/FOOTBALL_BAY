@@ -37,7 +37,8 @@ end
     @match.destroy
     redirect_to matches_path
   end
-  
+
+    
   private
 
   def match_params
