@@ -17,30 +17,35 @@ puts "Match destroyed"
 
 venue_one = Venue.create!(name: "Old Trafford",
     post_code: "M16 0RA",
+    city: 'manchester',
     cost_per_hour: "£6",
     address_line_1: "Sir Matt Busby Way, Old Trafford, Manchester",
     surface: "Natural")
 
 venue_two = Venue.create!(name: "Anfield",
     post_code: "L4 0TH",
+    city: 'liverpool',
     cost_per_hour: "£5",
     address_line_1: "Anfield Road, Liverpool",
     surface: "Hybrid")
 
 venue_three = Venue.create!(name: "Stadium of Light",
     post_code: "SR5 1SU",
+    city: 'sunderland',
     cost_per_hour: "£3",
     address_line_1: "Stadium of Light, Sunderland",
     surface: "Artificial")
 
 venue_four = Venue.create!(name: "Ewood Park",
     post_code: "BB2 4JF",
+    city: 'blackburn',
     cost_per_hour: "£3",
-    address_line_1: "Ewood Park, Blackburn",
+    address_line_1: "Ewood Park",
     surface: "Hybrid")
 
 venue_five = Venue.create!(name: "Goodison Park",
     post_code: "L20 2BN",
+    city: 'liverpool',
     cost_per_hour: "£4",
     address_line_1: "Goodison Road, Walton, Liverpool",
     surface: "Natural")
@@ -57,18 +62,20 @@ puts "Users created"
 
 match_one = Match.create!(skill_level: "beginner",
     no_of_players: "5",
+    description: 'I want to have a lovely game of football',
     start_time: "2pm",
     gender: "male",
     end_time: "3.30pm",
-    venue_id: Venue.first.id,
-    user_id: User.first.id)
+    venue_id: venue_five.id,
+    user_id: user_one.id)
 
 match_two = Match.create!(skill_level: "advanced",
     no_of_players: "7",
+    description: 'I want to have a lovely game of football',
     start_time: "7pm",
     gender: "female",
     end_time: "8pm",
-    venue_id: Venue.last.id,
-    user_id: User.last.id)
+    venue_id: venue_five.id,
+    user_id: user_one.id)
 
 puts "Matches created"
