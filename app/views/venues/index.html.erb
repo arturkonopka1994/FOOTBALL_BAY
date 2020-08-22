@@ -1,7 +1,9 @@
 <h1>hello index</h1>
 <ul>
   <% @venues.each do |venue| %>
-  <li><%= link_to venue.name, venue_path(venue) %></li>
-  <%= cl_image_tag venue.photo.key, height: 300, width: 400, crop: :fill  %>
+  <li>
+    <%= link_to venue.name, venue_path(venue) %>
+    <%= cl_image_tag venue.photo.key, height: 300, width: 400, crop: :fill  %>
+  </li>
   <% end %> 
 </ul>
