@@ -10,8 +10,8 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.venue = @venue
     @review.user = current_user
-    if @review.save
-      # redirect_to Something_path
+    if @review.save!
+      redirect_to venue_path(@venue)
     else
       render 'venue/show'
     end
