@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
   resources :venues, only: [:create, :index, :show, :edit, :new] do
     resources :reviews, only: [:create]
-    resources :matches, only: [:new, :create]
+    resources :matches
   end
   resources :chatroom, only: [:index, :show] do
     resources :messages, only: [:create]
