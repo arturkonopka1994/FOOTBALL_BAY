@@ -3,15 +3,16 @@
   <h1>New Venue</h1>
 
   <%= simple_form_for(@venue) do |v| %>
-  <%= v.input :name %>
-  <%= v.input :address_line_1 %>
-  <%= v.input :address_line_2 %>
-  <%= v.input :city %>
-  <%= v.input :cost_per_hour %>
-  <%= v.input :post_code %>
-  <%= v.input :surface %>
-  <%= v.input :floodlit %>
-  <%= v.button :submit %>
+    <%= v.input :name %>
+    <%= v.input :address_line_1 %>
+    <%= v.input :address_line_2 %>
+    <%= v.input :city %>
+    <%= v.input :cost_per_hour %>
+    <%= v.input :post_code %>
+    <%= v.input :surface %>
+    <%= v.input :floodlit %>
+    <%= v.input :photo, as: :file %>
+    <%= v.button :submit %>
   <% end %>
 
 </div>
