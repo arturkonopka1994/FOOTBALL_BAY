@@ -2,16 +2,15 @@
   <h1><%= @venue.name.upcase %></h1>
   <%= link_to 'create match', new_venue_match_path(@venue) %>
 
-
-
-
-
   <%= simple_form_for [@venue, @review] do |r| %>
-    <div class="form-inputs">
-      <%= r.rich_text_area :rich_body %>
-    </div>
-    <div class="form-actions">
-      <%= r.button :submit %>
-    </div>
+    <%= r.rich_text_area :content %>
+    <%= r.button :submit %>
   <% end %>
+  <h2>Reviews</h2>
+  <div>
+    <% @venue.reviews.each do |review|  %>
+    <h3><%= review.content %></h1>
+    <% end %>
+  </div>
+
 </div>

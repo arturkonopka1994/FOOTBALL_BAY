@@ -1,7 +1,7 @@
 class Review < ApplicationRecord
   belongs_to :user
   belongs_to :venue
-  has_rich_text :rich_body
+  has_rich_text :content
 
-  validates :rich_body, length: { minimum: 5 }, presence: true
+  validates :content, presence: true
 end
