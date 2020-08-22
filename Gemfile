@@ -26,7 +26,11 @@ gem 'redis', '~> 4.0'
 gem 'image_processing', '~> 1.2'
 
 gem 'dotenv-rails', groups: [:developement, :test]
+
+# photos features
 gem 'cloudinary', '~> 1.17'
+
+gem 'geocoder'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
