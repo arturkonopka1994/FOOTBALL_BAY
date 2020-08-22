@@ -7,7 +7,7 @@ class Match < ApplicationRecord
   
   validates :description, length: { minimum: 20 }, presence: true
   validates :start_time, :end_time, presence: true
-  validates :gender, :skill_level, presence: true
+  validates :skill_level, presence: true
   
   def players
     users
