@@ -7,54 +7,75 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Venue.destroy_all
+puts "Venues destroyed"
+
 User.destroy_all
-Matches.destroy_all
+puts "Users destroyed"
 
-VENUES = [
-  (name: "Old Trafford",
-    postcode: "M16 0RA",
-    cost: "£6",
-    address: "Sir Matt Busby Way, Old Trafford, Manchester"),
-  (name: "Anfield",
-    postcode: "L4 0TH",
-    cost: "£5",
-    address: "Anfield Road, Liverpool"),
-  (name: "Stadium of Light",
-    postcode: "SR5 1SU",
-    cost: "£3",
-    address: "Stadium of Light, Sunderland"),
-  (name: "Ewood Park",
-    postcode: "BB2 4JF",
-    cost: "£3",
-    address: "Ewood Park, Blackburn"),
-  (name: "Goodison Park",
-    postcode: "L20 2BN",
-    cost: "£4",
-    address: "Goodison Road, Walton, Liverpool")
-]
+Match.destroy_all
+puts "Match destroyed"
 
-USERS = [
-  (first_name: "Marco",
-    last_name: "Verratti",
-    email: "m.verratti@gmail.com",
-    gender: "male"),
-  (first_name: "Alex",
-    last_name: "Morgan",
-    email: "a.morgan@gmail.com",
-    gender: "female")
-]
+venue_one = Venue.create!(name: "Old Trafford",
+    post_code: "M16 0RA",
+    city: 'manchester',
+    cost_per_hour: "£6",
+    address_line_1: "Sir Matt Busby Way, Old Trafford, Manchester",
+    surface: "Natural")
 
-MATCHES = [
-  (skill_level: "beginner",
+venue_two = Venue.create!(name: "Anfield",
+    post_code: "L4 0TH",
+    city: 'liverpool',
+    cost_per_hour: "£5",
+    address_line_1: "Anfield Road, Liverpool",
+    surface: "Hybrid")
+
+venue_three = Venue.create!(name: "Stadium of Light",
+    post_code: "SR5 1SU",
+    city: 'sunderland',
+    cost_per_hour: "£3",
+    address_line_1: "Stadium of Light, Sunderland",
+    surface: "Artificial")
+
+venue_four = Venue.create!(name: "Ewood Park",
+    post_code: "BB2 4JF",
+    city: 'blackburn',
+    cost_per_hour: "£3",
+    address_line_1: "Ewood Park",
+    surface: "Hybrid")
+
+venue_five = Venue.create!(name: "Goodison Park",
+    post_code: "L20 2BN",
+    city: 'liverpool',
+    cost_per_hour: "£4",
+    address_line_1: "Goodison Road, Walton, Liverpool",
+    surface: "Natural")
+
+puts "Venues created"
+
+user_one = User.create!(email: "m.verratti@gmail.com",
+  password: "aaaaaa")
+
+user_two = User.create!(email: "a.morgan@gmail.com",
+  password: "bbbbbb")
+
+puts "Users created"
+
+match_one = Match.create!(skill_level: "beginner",
     no_of_players: "5",
+    description: 'I want to have a lovely game of football',
     start_time: "2pm",
-    match_description: "Venue for beginners players. Starting early afternoon.",
     gender: "male",
-    end_time: "3pm"),
-  (skill_level: "advanced",
+    end_time: "3.30pm",
+    venue_id: venue_five.id,
+    user_id: user_one.id)
+
+match_two = Match.create!(skill_level: "advanced",
     no_of_players: "7",
+    description: 'I want to have a lovely game of football',
     start_time: "7pm",
-    match_description: "Venue for advanced players. Starting after work.",
     gender: "female",
-    end_time: "8pm")
-]
+    end_time: "8pm",
+    venue_id: venue_five.id,
+    user_id: user_one.id)
+
+puts "Matches created"

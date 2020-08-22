@@ -1,1 +1,5 @@
-<h1><%= @match.name.upcase %></h1>
+<h1><%= @match.start_time %></h1>
+<%= link_to 'Booking', match_bookings_path(@match), method: :post  %>
+<%= link_to 'edit match', edit_match_path %>
+<%= link_to 'delete match', match_path, method: :destroy %>
+<%= link_to 'back to matches', matches_path %>

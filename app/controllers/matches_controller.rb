@@ -4,11 +4,12 @@ class MatchesController < ApplicationController
   end
   
   def show
-    @match = Match.find(params[:id])     
+    @match = Match.find(params[:id])  
   end
 
   def new
-    @match = Match.new    
+    @match = Match.new
+    @venue = Venue.find(params[:venue_id])    
   end
 
   def create

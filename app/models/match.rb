@@ -5,9 +5,9 @@ class Match < ApplicationRecord
   has_many :bookings
   has_many :users, through: :bookings
   
-  validates :description, length: { minimum:100 }, presence: true
+  validates :description, length: { minimum: 20 }, presence: true
   validates :start_time, :end_time, presence: true
-  validates :gender, :skill_level, presence: true
+  validates :skill_level, presence: true
   
   def players
     users
