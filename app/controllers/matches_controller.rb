@@ -28,6 +28,7 @@ end
   end
 
   def update
+    
     if @match.update(match_params)
       redirect_to match_path(@match)
     else
