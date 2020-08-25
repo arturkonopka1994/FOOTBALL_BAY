@@ -28,8 +28,9 @@ class VenuesController < ApplicationController
 
   def update
     @venue = Venue.find(params[:id])
+    @venue.update(strong)
     if @venue.update(strong)
-      # redirect_to
+      redirect_to venue_path(@venue)
     else
       render 'edit'
     end
