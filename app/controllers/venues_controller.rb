@@ -2,6 +2,14 @@ class VenuesController < ApplicationController
 
   def index
     @venues = Venue.all
+    @venues = Venue.geocoded
+
+    @markers = @venues.map do |venue|
+      {
+        lat: venue.latitude,
+        lng: venue.longitude
+      }
+    end
   end
 
   def show
@@ -28,8 +36,9 @@ class VenuesController < ApplicationController
 
   def update
     @venue = Venue.find(params[:id])
+    @venue.update(strong)
     if @venue.update(strong)
-      # redirect_to
+      redirect_to venue_path(@venue)
     else
       render 'edit'
     end

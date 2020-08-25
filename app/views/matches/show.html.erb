@@ -3,3 +3,6 @@
 <%= link_to 'edit match', edit_match_path %>
 <%= link_to 'delete match', match_path, method: :destroy %>
 <%= link_to 'back to matches', matches_path %>
+
+
+<%= raw @qr.as_html %>

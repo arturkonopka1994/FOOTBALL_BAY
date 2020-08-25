@@ -1,10 +1,14 @@
 class MatchesController < ApplicationController
+
+  require 'rqrcode'
+
   def index
     @matches = Match.all
   end
 
   def show
     @match = Match.find(params[:id])
+    @qr = RQRCode::QRCode.new( 'href="https://wa.me/447376676874', :size => 4, :level => :h )
   end
 
   def new
@@ -29,6 +33,8 @@ class MatchesController < ApplicationController
   end
 
   def update
+    @match = Match.find(params[:id])
+    @match.update(match_params)
     if @match.update(match_params)
       redirect_to match_path(@match)
     else
