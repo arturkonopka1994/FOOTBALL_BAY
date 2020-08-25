@@ -9,7 +9,7 @@
     <%= v.input :city %>
     <%= v.input :cost_per_hour %>
     <%= v.input :post_code %>
-    <%= v.input :surface %>
+    <%= v.input :surface, collection: ["Natural", "Hybrid", "Artificial", "Indoor"] %>
     <%= v.input :floodlit %>
     <%= v.input :photo, as: :file %>
     <%= v.button :submit %>
