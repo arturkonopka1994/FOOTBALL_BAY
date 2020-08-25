@@ -28,7 +28,8 @@ end
   end
 
   def update
-    
+    @match = Match.find(params[:id])
+    @match.update(match_params)
     if @match.update(match_params)
       redirect_to match_path(@match)
     else
