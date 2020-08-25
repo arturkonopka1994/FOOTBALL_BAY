@@ -37,6 +37,7 @@ class MatchesController < ApplicationController
   end
 
   def destroy
+    @match = Match.find(params[:id])
     @match.destroy
     redirect_to matches_path
   end
@@ -48,5 +49,4 @@ class MatchesController < ApplicationController
     params.require(:match).permit(:skill_level, :no_of_players, :start_time, :end_time,
     :description, :gender, :venue)
   end
-
 end

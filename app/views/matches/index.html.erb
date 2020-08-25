@@ -1,9 +1,9 @@
 <h1>Matches</h1>
-<%= link_to 'create a match', venues_path %>
+<%# <%= link_to 'create a match', new_venue_match_path %> %>
 <ul>
   <% @matches.each do |match| %>
   <li><%= link_to match.title, match_path(match) %></li>
   <%= link_to 'edit match', edit_match_path(match) %>
-  <%= link_to 'delete match', match_path(match), method: :destroy %>
+  <%= link_to 'delete match', match_path(match),  method: :delete, data: { confirm: "Are you sure?" } %>
   <% end %> 
 </ul>

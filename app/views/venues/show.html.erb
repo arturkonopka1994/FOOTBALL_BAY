@@ -1,16 +1,36 @@
-<div class="container">
-  <h1><%= @venue.name.upcase %></h1>
-  <%= link_to 'create match', new_venue_match_path(@venue) %>
 
-  <%= simple_form_for [@venue, @review] do |r| %>
-    <%= r.rich_text_area :content %>
-    <%= r.button :submit %>
-  <% end %>
-  <h2>Reviews</h2>
-  <div>
-    <% @venue.reviews.each do |review|  %>
-    <h3><%= review.content %></h1>
+
+
+<% if @venue.photo.attached? %>
+  <div class="container">
+    <h1><%= @venue.name.upcase %></h1>
+    <%= cl_image_tag @venue.photo.key, height: 300, width: 400, crop: :fill %>
+    <%= link_to 'create match', new_venue_match_path(@venue) %>
+    <%= simple_form_for [@venue, @review] do |r| %>
+      <%= r.rich_text_area :content %>
+      <%= r.button :submit %>
     <% end %>
+    <h2>Reviews</h2>
+    <div>
+      <% @venue.reviews.each do |review|  %>
+      <h3><%= review.content %></h1>
+      <% end %>
+    </div>
   </div>
-
-</div>
+<% else %>
+  <div class="container">
+    <h1><%= @venue.name.upcase %></h1>
+    <%= image_tag('under_construction.jpg', height: 200, width: 300, crop: :fill) %>
+    <%= link_to 'create match', new_venue_match_path(@venue) %>
+    <%= simple_form_for [@venue, @review] do |r| %>
+      <%= r.rich_text_area :content %>
+      <%= r.button :submit %>
+    <% end %>
+    <h2>Reviews</h2>
+    <div>
+      <% @venue.reviews.each do |review|  %>
+      <h3><%= review.content %></h1>
+      <% end %>
+    </div>
+  </div>
+<% end %>
