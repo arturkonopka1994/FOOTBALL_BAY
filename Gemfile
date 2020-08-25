@@ -31,7 +31,7 @@ gem 'dotenv-rails', groups: [:developement, :test]
 gem 'cloudinary', '~> 1.17'
 
 gem 'geocoder'
-
+gem 'rqrcode'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
