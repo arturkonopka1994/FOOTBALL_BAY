@@ -6,7 +6,7 @@
     <% if venue.photo.attached? %>
       <%= link_to venue.name, venue_path(venue) %>
       <%= link_to 'edit', edit_venue_path(venue) %>
-      <%= cl_image_tag venue.photo.key, height: 300, width: 400, crop: :fill  %>
+      <%= cl_image_tag venue.photo.key, height: 300, width: 400, crop: :fill %>
     <% else %>
       <%= link_to venue.name, venue_path(venue) %>
       <%= link_to 'edit', edit_venue_path(venue) %>
