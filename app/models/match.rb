@@ -10,6 +10,15 @@ class Match < ApplicationRecord
   validates :start_time, :end_time, presence: true
   validates :skill_level, presence: true
 
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    associated_against: {
+      venue: [ :city, :post_code ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+
 def valid_venue_time?
   valid_time = self.venue.matches.all? do |match|
     !(match.start_time >= self.start_time && match.start_time <= self.end_time || match.end_time >= self.start_time && match.end_time <= self.end_time)
