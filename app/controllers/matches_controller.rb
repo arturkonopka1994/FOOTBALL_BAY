@@ -25,8 +25,10 @@ class MatchesController < ApplicationController
   def create
     @match = Match.new(match_params)
     @match.user = current_user
-    @venue = Venue.find(params[:venue_id])
-    @match.venue = @venue
+    if params["venue_id"]
+      @venue = Venue.find(params["venue_id"])
+      @match.venue = @venue
+    end
     if @match.save
       redirect_to match_path(@match)
     else
