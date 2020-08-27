@@ -54,6 +54,6 @@ class VenuesController < ApplicationController
   private
 
   def strong
-    params.require(:venue).permit(:address_line_1, :address_line_2, :city, :postcode, :cost_per_hour, :name, :surface, :floodlit, :photo)
+    params.require(:venue).permit(:address_line_1, :address_line_2, :city, :post_code, :cost_per_hour, :name, :surface, :floodlit, :photo)
   end
 end

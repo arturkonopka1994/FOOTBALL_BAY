@@ -1,36 +1,44 @@
 
-
-
 <% if @venue.photo.attached? %>
-  <div class="container">
-    <h1><%= @venue.name.upcase %></h1>
-    <%= cl_image_tag @venue.photo.key, height: 300, width: 400, crop: :fill %>
-    <%= link_to 'create match', new_venue_match_path(@venue) %>
-    <%= simple_form_for [@venue, @review] do |r| %>
-      <%= r.rich_text_area :content %>
-      <%= r.button :submit %>
-    <% end %>
-    <h2>Reviews</h2>
-    <div>
-      <% @venue.reviews.each do |review|  %>
-      <h3><%= review.content %></h1>
-      <% end %>
-    </div>
-  </div>
+  <div class="banner" style="background-image: url('<%= cl_image_path @venue.photo.key %>');">
 <% else %>
-  <div class="container">
-    <h1><%= @venue.name.upcase %></h1>
-    <%= image_tag('under_construction.jpg', height: 200, width: 300, crop: :fill) %>
-    <%= link_to 'create match', new_venue_match_path(@venue) %>
+  <div class="banner" style="background-image: url(<%= image_tag 'under_construction.jpg' %>);">
+<% end %>
+  <h1><%= @venue.name.upcase %></h1>   
+  <%= link_to 'Create match', new_venue_match_path(@venue), class:"button" %>
+</div>
+
+<div class="container">
+  <div>
+    <h2>Match Details</h2>
+    <h3>Address:</h3>
+    <p><%= @venue.address_line_1 %></p>
+    <h3>City:</h3>
+    <p><%= @venue.city.capitalize %></p>
+    <h3>Post Code:</h3>
+    <p><%= @venue.post_code %></p>
+    <h3>Surface:</h3>
+    <p><%= @venue.surface %></p>
+    <h3>Lights:</h3>
+    <% if @venue.floodlit %>
+      <p>Yes</p>
+    <% else %>
+      <p>No</p>
+    <% end %>
+  </div>
+
+  <div>
+    <h2>Reviews</h2>
     <%= simple_form_for [@venue, @review] do |r| %>
       <%= r.rich_text_area :content %>
       <%= r.button :submit %>
     <% end %>
-    <h2>Reviews</h2>
+
     <div>
       <% @venue.reviews.each do |review|  %>
       <h3><%= review.content %></h1>
       <% end %>
     </div>
   </div>
-<% end %>
+
+</div>
