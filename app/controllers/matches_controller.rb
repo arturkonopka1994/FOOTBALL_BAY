@@ -29,7 +29,7 @@ class MatchesController < ApplicationController
       @venue = Venue.find(params["venue_id"])
       @match.venue = @venue
     end
-    if @match.save
+    if @match.save!
       redirect_to match_path(@match)
     else
       render 'new'
