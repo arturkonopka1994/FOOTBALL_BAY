@@ -3,7 +3,11 @@ class MatchesController < ApplicationController
   require 'rqrcode'
 
   def index
-    @matches = Match.all
+    if params[:query].present?
+      @matches = Match.joins(:venue).where("venues.city ILIKE ? ", "%#{params[:query]}%")
+    else
+      @matches = Match.all
+    end
   end
 
   def show

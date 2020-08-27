@@ -7,7 +7,8 @@ class VenuesController < ApplicationController
     @markers = @venues.map do |venue|
       {
         lat: venue.latitude,
-        lng: venue.longitude
+        lng: venue.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { venue: venue })
       }
     end
   end
