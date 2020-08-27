@@ -29,7 +29,8 @@ gem 'dotenv-rails', groups: [:developement, :test]
 
 # photos features
 gem 'cloudinary', '~> 1.17'
-
+# PG Search
+gem 'pg_search', '~> 2.3.0'
 gem 'geocoder'
 gem 'rqrcode'
 # Reduces boot times through caching; required in config/boot.rb
@@ -64,3 +65,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
