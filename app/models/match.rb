@@ -1,6 +1,6 @@
 class Match < ApplicationRecord
   belongs_to :user
-  belongs_to :venue
+  belongs_to :venue, optional: true
   has_one :chatroom
   has_many :bookings
   has_many :users, through: :bookings
@@ -9,6 +9,15 @@ class Match < ApplicationRecord
   validates :description, length: { minimum: 20 }, presence: true
   validates :start_time, :end_time, presence: true
   validates :skill_level, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    associated_against: {
+      venue: [ :city, :post_code ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 
 def valid_venue_time?
   valid_time = self.venue.matches.all? do |match|
