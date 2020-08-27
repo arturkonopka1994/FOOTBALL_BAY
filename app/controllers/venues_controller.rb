@@ -2,15 +2,15 @@ class VenuesController < ApplicationController
 
   def index
     @venues = Venue.all
-    # @venues = Venue.geocoded
+    @venues = Venue.geocoded
 
-    # @markers = @venues.map do |venue|
-    #   {
-    #     lat: venue.latitude,
-    #     lng: venue.longitude,
-    #     infoWindow: render_to_string(partial: "info_window", locals: { venue: venue })
-    #   }
-    # end
+    @markers = @venues.map do |venue|
+      {
+        lat: venue.latitude,
+        lng: venue.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { venue: venue })
+      }
+    end
   end
 
   def show
