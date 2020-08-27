@@ -10,3 +10,13 @@
   font-size: 24px;
   font-weight: 400;
 }
+
+.button:hover {
+  color: #013D17;
+  background-color: #21e278;
+  transition: 0.2s;
+}
+
+a:hover {
+  text-decoration: none;
+}
