@@ -17,7 +17,9 @@ class MatchesController < ApplicationController
 
   def new
     @match = Match.new
-    @venue = Venue.find(params[:venue_id])
+    if params["venue_id"]
+      @venue = Venue.find(params["venue_id"])
+    end
   end
 
   def create

@@ -2,9 +2,13 @@
 
   <h1>New Match</h1>
 
-  <%= simple_form_for [@venue, @match] do |m| %>
-  <%= m.association :venue, selected: "#{@venue.id}" %>
+  <%= simple_form_for @match do |m| %>
   <%= m.input :title, placeholder: "Friendly game" %>
+  <% if @venue %>
+    <%= m.association :venue, selected: "#{@venue.id}" %>
+  <% else %>
+    <%= m.association :venue %>
+  <% end %>
   <%= m.input :no_of_players, collection: ["5 Players", "7 Players", "11 Players"] %>
   <%= m.input :skill_level, as: :radio_buttons, collection: ["Just for fun", "Try Hard"] %>
   <%= m.input :start_time %>

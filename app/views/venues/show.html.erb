@@ -5,7 +5,7 @@
   <div class="banner" style="background-image: url(<%= image_tag 'under_construction.jpg' %>);">
 <% end %>
   <h1><%= @venue.name.upcase %></h1>   
-  <%= link_to 'Create match', new_venue_match_path(@venue), class:"button" %>
+  <%= link_to 'Create match', new_match_path(venue_id:@venue.id), class:"button" %>
 </div>
 
 <div class="container">
