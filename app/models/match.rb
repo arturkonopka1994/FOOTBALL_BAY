@@ -1,6 +1,6 @@
 class Match < ApplicationRecord
   belongs_to :user
-  belongs_to :venue
+  belongs_to :venue, optional: true
   has_one :chatroom
   has_many :bookings
   has_many :users, through: :bookings
