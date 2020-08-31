@@ -1,2 +1,7 @@
 <h2><%= venue.name %></h2>
 <p><%= venue.full_address %></p>
+<% if venue.photo.attached? %>
+  <%= cl_image_tag venue.photo.key, crop: :fill, class: "pop-up-photo" %>
+<% else %>
+  <%= image_tag('under_construction.jpg', crop: :fill, class: "pop-up-photo")  %>
+<% end %>

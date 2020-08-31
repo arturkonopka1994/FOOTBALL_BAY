@@ -4,7 +4,7 @@ class MatchesController < ApplicationController
 
   def index
     if params[:query].present?
-      @matches = Match.joins(:venue).where("venues.city ILIKE ? ", "%#{params[:query]}%")
+      @matches = Match.global_search(params[:query])
     else
       @matches = Match.all
     end
