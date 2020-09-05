@@ -1,20 +1,19 @@
 <div>
-  <h1>hello index</h1>
-  <%= link_to 'add a venue', new_venue_path, class: "button" %>
+  <h1 class="text-center">Available Football Venues</h1>
+  <%= link_to 'Add a Venue', new_venue_path, class: "button position-top" %>
 
   <div class="my-container">
     <div class="cards">
       <% @venues.each do |venue| %>
-        <div class="newcard">
-        <% if venue.photo.attached? %>
-          <%= cl_image_tag venue.photo.key, height: 300, width: 291, crop: :fill %>
-        <% else %>
-          <%= image_tag('under_construction.jpg', height: 300, width: 290, crop: :fill) %>
-        <% end %>
-        <div>
-          <%= link_to venue.name, venue_path(venue) %>
-          <%= link_to 'edit', edit_venue_path(venue) %>
-        </div>
+          <% if venue.photo.attached? %>
+            <div class="newcard" style="background-image: url('<%= cl_image_path venue.photo.key, height: 300, width: 400, crop: :fill, gravity: :auto %>')">
+          <% else %>
+            <div class="newcard" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_tag 'under_construction' %>')">
+          <% end %>
+          <div class="">
+            <%= link_to venue.name, venue_path(venue) %>
+            <%= link_to 'edit', edit_venue_path(venue) %>
+          </div>
         </div>
       <% end %> 
     </div>
