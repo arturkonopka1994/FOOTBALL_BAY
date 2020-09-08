@@ -8,6 +8,7 @@
   <h1><%= @match.venue.name %></h1>
 </div>
 
+
 <div class="container">
   <%= link_to 'Booking', match_bookings_path(@match), method: :post, class: "button"  %>
   <%= link_to 'back to matches', matches_path, class: "button" %>
@@ -33,3 +34,4 @@
 
 
 </div>
+

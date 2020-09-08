@@ -1,1 +1,5 @@
 <h1> hello dashboard</h1>
+<% current_user.bookings.each do |booking| %>
+  <%= booking.match.start_time %>
+  <%= booking.match.end_time %>
+<% end %>

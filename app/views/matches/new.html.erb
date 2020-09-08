@@ -11,8 +11,8 @@
   <% end %>
   <%= m.input :no_of_players, collection: ["5 Players", "7 Players", "11 Players"] %>
   <%= m.input :skill_level, as: :radio_buttons, collection: ["Just for fun", "Try Hard"] %>
-  <%= m.input :start_time %>
-  <%= m.input :end_time %>
+  <%= m.input :start_time, as: :datetime, :minute_step => 15 %>
+  <%= m.input :end_time, as: :datetime, :minute_step => 15 %>
   <%= m.input :description %>
   <%= m.button :submit %>
   <% end %>
