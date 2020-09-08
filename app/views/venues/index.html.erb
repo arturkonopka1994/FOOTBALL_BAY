@@ -1,27 +1,32 @@
-<div class="container">
+<div>
+  <h1 class="text-center">Available Football Venues</h1>
+  <%= link_to 'Add a Venue', new_venue_path, class: "button position-top" %>
 
-  <h1>hello index</h1>
-  <%= link_to 'add a venue', new_venue_path %>
-  <ul>
-    <% @venues.each do |venue| %>
-    <li>
-      <%= link_to venue.name, venue_path(venue) %>
-      <%= link_to 'edit', edit_venue_path(venue) %>
-      <% if venue.photo.attached? %>
-        <%= cl_image_tag venue.photo.key, height: 300, width: 400, crop: :fill %>
-      <% else %>
-        <%= image_tag('under_construction.jpg', height: 200, width: 300, crop: :fill) %>
-      <% end %>
-    </li>
-    <% end %> 
-  </ul>
-
-
-  <div id="map"
-      style="width: 100%; height: 600px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_URL'] %>">
+  <div class="my-container">
+    <div class="cards">
+      <% @venues.each do |venue| %>
+          <% if venue.photo.attached? %>
+            <div class="newcard" style="background-image: url('<%= cl_image_path venue.photo.key, height: 300, width: 400, crop: :fill, gravity: :auto %>')">
+          <% else %>
+            <div class="newcard" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://static-cse.canva.com/blob/135830/under-construction-signage-on-laptop-keyboard-211122.jpg')">
+          <% end %>
+          <div class="">
+            <%= link_to venue.name, venue_path(venue) %>
+            <%= link_to 'edit', edit_venue_path(venue) %>
+          </div>
+        </div>
+      <% end %> 
+    </div>
+    
+    <div id="map"
+        style="width: 600px; height: 100vh;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_URL'] %>">
+    </div>
+    
   </div>
-  
 </div>
+
+
+
 

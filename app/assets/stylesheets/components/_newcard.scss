@@ -1,0 +1,14 @@
+.newcard{
+  display: flex;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  align-items: center;
+  justify-content: space-around;
+  font-size: 22px;
+  color: white;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
+.newcard a {
+  color: white;
+}
