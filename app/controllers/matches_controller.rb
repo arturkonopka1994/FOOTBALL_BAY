@@ -26,7 +26,7 @@ class MatchesController < ApplicationController
     @match = Match.new(match_params)
     @match.user = current_user
     if params["venue_id"]
-      @venue = Venue.find(params["venue_id"])
+      @venue = Venue.find(params["match"]["venue_id"])
       @match.venue = @venue
     end
     if @match.save!
@@ -61,6 +61,6 @@ class MatchesController < ApplicationController
 
   def match_params
     params.require(:match).permit(:skill_level, :no_of_players, :start_time, :end_time,
-    :description, :gender, :venue)
+    :description, :gender, :venue_id)
   end
 end
