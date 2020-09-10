@@ -5,15 +5,15 @@
   <h1 class="home">Welcome to the Football Bay!</h1>
   <%= video_tag "video.mp4", loop: :loop, muted: :muted, autoplay: :autoplay, class: "home_video" %>
   
-  <%= link_to 'matches', matches_path %>
-  <%= link_to 'venues', venues_path %>
-  <%= link_to 'dashboard', dashboard_path %>
-
+  
+  
+</div>
+<div class="form-search">
   <%= form_tag matches_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find a match"
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a match"
     %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
