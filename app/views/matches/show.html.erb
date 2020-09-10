@@ -16,10 +16,7 @@
     <h1><%= @match.title.capitalize %></h1>
   <% end %>
 
-  <div id="map_matchshow"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_URL'] %>">
-  </div>
+
   <div class="newcard_matchshow">
     <p>Postcode <%= @match.venue.post_code %></p>
     <p>Match Start Time <%= @match.start_time %></p>
