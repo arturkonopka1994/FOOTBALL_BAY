@@ -15,15 +15,15 @@
             <%#= link_to 'edit', edit_venue_path(venue) %>
           </div>
         </div>
-      <% end %> 
+      <% end %>
     </div>
-    
+
     <div id="map"
         style="width: 600px; height: 100vh;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_URL'] %>">
     </div>
-    
+
+    </div>
   </div>
 </div>
-
