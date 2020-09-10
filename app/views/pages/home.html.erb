@@ -1,14 +1,20 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= link_to 'matches', matches_path %>
-<%= link_to 'venues', venues_path %>
-<%= link_to 'dashboard', dashboard_path %>
-
-<%= form_tag matches_path, method: :get do %>
+<div class="home-video-wrapper">
+  <!-- <video loop muted autoplay preload="auto">
+    <source src="video.mp4"  type="video/mp4">
+  </video> -->
+  <h1 class="home">Welcome to the Football Bay!</h1>
+  <%= video_tag "video.mp4", loop: :loop, muted: :muted, autoplay: :autoplay, class: "home_video" %>
+  
+  
+  
+</div>
+<div class="form-search">
+  <%= form_tag matches_path, method: :get do %>
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
     placeholder: "Find a match"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>

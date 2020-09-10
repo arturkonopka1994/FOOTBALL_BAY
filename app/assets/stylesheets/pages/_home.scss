@@ -19,4 +19,26 @@ td {
 td.black { border-color: #000; }
 td.white { border-color: #fff; }
 //
+.home_video {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  object-fit: cover;
+  top: 0;
+  z-index: -10;
+}
 
+.home-video-wrapper {
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+}
+
+h1.home {
+  color: white;
+  position: relative;
+  text-align: center;
+}

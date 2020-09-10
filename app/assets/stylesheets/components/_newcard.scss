@@ -6,9 +6,22 @@
   align-items: center;
   justify-content: space-around;
   font-size: 22px;
-  color: white;
   text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
 .newcard a {
   color: white;
+}
+.newcard_matchshow{
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  font-size: 11px;
+  height: 150px;
+  width: 150px;
+  position: absolute;
+  top: 130px;
+  height: 57px;
+  width: 250px;
+}
+
+.newcard_matchshow a {
+  color: black;
 }

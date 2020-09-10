@@ -1,8 +1,30 @@
-<h1><%= @match.start_time %></h1>
-<%= link_to 'Booking', match_bookings_path(@match), method: :post  %>
-<%= link_to 'edit match', edit_match_path %>
-<%= link_to 'delete match', match_path, method: :destroy %>
-<%= link_to 'back to matches', matches_path %>
+<%# <%= link_to 'edit match', edit_match_path, class: "button" %>
+
+<div class="container">
+
+  <%= link_to 'back to matches', matches_path, class: "button" %>
+  <div>
+    <% if @match.title != nil %>
+      <h1><%= @match.title.capitalize %></h1>
+    <% end %>
+  </div>
+  
+
+  <div class="newcard_matchshow">
+    <p>Postcode <%= @match.venue.post_code %></p>
+    <p>Match Start Time <%= @match.start_time %></p>
+  </div>
+
+  <h2>Description:</h2> <p><%= @match.description %></p>
+  <h2>Number of players needed <%= @match.spots_left %>/<%= @match.no_of_players %></h2>
+
+  <%= link_to 'Book Match', match_bookings_path(@match), method: :post, class: "button"  %>
+  <button id="show" class="button">Click here to contact host</button>
 
 
-<%= raw @qr.as_html %>
+  <div class="qrcode d-none">
+    <h2>Scan the QR to Contact the Host</h2>
+    <%= raw @qr.as_html %>
+  </div>
+  
+</div>

@@ -1,1 +1,9 @@
-<h1> hello dashboard</h1>
+<h1> Your Dashboard</h1>
+<div class="container">
+  
+  <% current_user.bookings.each do |booking| %>
+    <%= booking.match.title %>
+    <%= booking.match.start_time %>
+    <%= booking.match.end_time %>
+  <% end %>
+</div>

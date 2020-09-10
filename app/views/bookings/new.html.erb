@@ -1,4 +1,6 @@
-<h1>hello bookings new</h1>
+<h1>New Booking</h1>
 
-<h2>There are <%match.spots_left%> spots available<h2>
- 
+<h2>There are <%@match.spots_left%> spots available<h2>
+<div class="container">
+  <%= link_to 'Join the game', match_bookings_path(@match),  method: :post, data: { confirm: "Do you want to confirm your booking?" } %>
+</div>
