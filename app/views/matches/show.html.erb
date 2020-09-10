@@ -1,20 +1,17 @@
 <%# <%= link_to 'edit match', edit_match_path, class: "button" %>
 
-<% if @match.venue.photo.attached? %>
-  <div class="banner_matchshow" style="background-image: url('<%= cl_image_path @match.venue.photo.key %>');">
-<% else %>
-  <div class="banner_matchshow" style="background-image: url('https://static-cse.canva.com/blob/135830/under-construction-signage-on-laptop-keyboard-211122.jpg');">
-<% end %>
-  <h1><%= @match.venue.name %></h1>
-</div>
-
-
 <div class="container">
-  <%= link_to 'Booking', match_bookings_path(@match), method: :post, class: "button"  %>
+
   <%= link_to 'back to matches', matches_path, class: "button" %>
+
   <% if @match.title != nil %>
     <h1><%= @match.title.capitalize %></h1>
   <% end %>
+
+  <div id="map_matchshow"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_URL'] %>">
+  </div>
 
 
   <div class="newcard_matchshow">
@@ -22,13 +19,16 @@
     <p>Match Start Time <%= @match.start_time %></p>
   </div>
 
-  <h2>Description <%= @match.description %></h2>
+  <h2>Description:</h2> <p><%= @match.description %></p>
+  <h2>Number of players needed <%= @match.spots_left %>/<%= @match.no_of_players %></h2>
 
-  <h2>Number of players needed <%= @match.spots_left %>/<%= @match.no_of_players %> </h2>
-
-  <h2>Scan the QR to Contact the Host</h2>
-  <%= raw @qr.as_html %>
+  <%= link_to 'Book Match', match_bookings_path(@match), method: :post, class: "button"  %>
+  <button id="show" class="button">Click here to contact host</button>
 
 
+  <div class="qrcode d-none">
+    <h2>Scan the QR to Contact the Host</h2>
+    <%= raw @qr.as_html %>
+  </div>
+  
 </div>
-

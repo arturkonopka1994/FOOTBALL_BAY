@@ -24,6 +24,7 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import "../plugins/show.js";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -37,6 +38,8 @@ import { initMapboxShow } from '../plugins/init_mapbox_venue_show';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+
+
 });
 
 document.addEventListener('turbolinks:load', () => {
