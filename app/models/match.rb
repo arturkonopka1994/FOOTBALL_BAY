@@ -2,8 +2,9 @@ class Match < ApplicationRecord
   belongs_to :user
   belongs_to :venue, optional: true
   has_one :chatroom
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   has_many :users, through: :bookings
+
   # before_validation :valid_venue_time?
 
   validates :description, length: { minimum: 20 }, presence: true
