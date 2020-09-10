@@ -2,9 +2,10 @@ import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
-const mapElement = document.getElementById('map-venueshow');
+
 
 const buildMap = () => {
+  const mapElement = document.getElementById('map-venueshow');
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map-venueshow',
@@ -33,6 +34,7 @@ const fitMapToMarkers = (map, markers) => {
 };
 
 const initMapboxShow = () => {
+  const mapElement = document.getElementById('map-venueshow');
   if (mapElement) {
     const map = buildMap();
     const markers = JSON.parse(mapElement.dataset.markers);
