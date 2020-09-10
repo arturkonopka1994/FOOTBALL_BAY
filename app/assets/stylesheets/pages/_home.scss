@@ -27,14 +27,18 @@ td.white { border-color: #fff; }
   justify-content: center;
   object-fit: cover;
   top: 0;
-  z-index: -2;
+  z-index: -10;
 }
 
-// .home-video-wrapper {
-//   height: 100vh;
-//   display: flex;
-// }
+.home-video-wrapper {
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+}
 
 h1.home {
   color: white;
+  position: relative;
+  text-align: center;
 }
