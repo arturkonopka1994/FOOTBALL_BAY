@@ -13,6 +13,13 @@ class MatchesController < ApplicationController
   def show
     @match = Match.find(params[:id])
     @qr = RQRCode::QRCode.new( 'href="https://wa.me/447376676874', :size => 4, :level => :h )
+    # @venues = Venue.geocoded
+    # @marker = 
+    #   [{
+    #     lat: @venue.latitude,
+    #     lng: @venue.longitude,
+    #     infoWindow: render_to_string(partial: "info_window", locals: { venue: @venue })
+    #   }]
   end
 
   def new
