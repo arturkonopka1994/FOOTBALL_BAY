@@ -3,7 +3,7 @@
   <h1 class="text-center"> Your Dashboard</h1>
   <div class="container">
     <% current_user.bookings.each do |booking| %>
-      <div class="newcard">
+      <div class="newcard mb-3">
         <p class="text-center">
           <span class="text-danger"><%= booking.match.title %></span> <br>
           <%= booking.match.start_time.strftime("%A, %d %b %Y %l:%M%p") %> -
