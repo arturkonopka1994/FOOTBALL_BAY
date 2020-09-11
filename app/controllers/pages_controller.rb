@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     if Rails.env.production?
-      @country = request.location.country
+      @country = request.location.country_code
       @city = request.location.city
       @post_code = request.location.postal_code
     end
