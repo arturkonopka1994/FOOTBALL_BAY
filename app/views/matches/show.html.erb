@@ -22,16 +22,13 @@
   </div>
 
   <h2>Match Details:</h2><p><%= @match.description %></p>
-  <h2>Players needed = <%= @match.spots_left %>/<%= @match.no_of_players %></h2>
-  <% if @match.spots_left = @match.no_of_players %>
-  
-  
-  <%= image_tag 'athlete', style:"height: 30px" %>
-  <%= image_tag 'athlete-negative', style:"height: 30px" %>
-
+  <h2>Players needed = <%= @match.spots_left %>/<%= @match.no_of_players %>
+    <%= image_tag 'athlete', style:"height: 30px" %>
+    <%= image_tag 'athlete-negative', style:"height: 30px" %>
+  </h2>
+  <h2>Skill level = <%= @match.skill_level %></h2>
 
   <button id="show" class="button">Click here to contact host</button>
-
   <div class="qrcode d-none">
     <h2>Scan the QR to Contact the Host</h2>
     <%= raw @qr.as_html %>
