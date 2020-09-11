@@ -1,5 +1,3 @@
-
-
 const toggler = () => {
   const qrHide = document.querySelector('.qrcode');
   const showQr = document.getElementById('show');
