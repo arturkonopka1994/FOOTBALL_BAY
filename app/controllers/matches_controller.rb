@@ -1,5 +1,4 @@
 class MatchesController < ApplicationController
-
   require 'rqrcode'
 
   def index
@@ -13,9 +12,9 @@ class MatchesController < ApplicationController
   def show
     @match = Match.find(params[:id])
     @qr = RQRCode::QRCode.new( 'href="https://wa.me/447376676874', :size => 4, :level => :h )
-    
+
     @venue = @match.venue
-    @marker = 
+    @marker =
       [{
         lat: @venue.latitude,
         lng: @venue.longitude,
@@ -62,7 +61,6 @@ class MatchesController < ApplicationController
     @match.destroy
     redirect_to matches_path
   end
-
 
   private
 

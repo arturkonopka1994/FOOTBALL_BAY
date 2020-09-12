@@ -5,16 +5,17 @@
     <% current_user.bookings.each do |booking| %>
       <div class="newcard mb-3">
         <p class="text-center">
-          <span class="text-danger"><%= booking.match.title %></span> <br>
+          <%= link_to booking_path(booking), method: :delete, data: { confirm: "Are you sure?"} do %>
+          <i class="fas fa-trash-alt" style="font-size: 1em"></i>
+          <% end %>
+          <span class="text-danger"><%= booking.match.title %></span>
           <%= booking.match.start_time.strftime("%A, %d %b %Y %l:%M%p") %> -
           <%= booking.match.end_time.strftime("%l:%M%p") %> at
           <%= booking.match.venue.post_code %>,
           <%= booking.match.no_of_players %> a side game by <%= booking.match.user.email %>
-          <br>
           <%= booking.match.description %>
         </p>
       </div>
     <% end %>
   </div>
-
 </div>
