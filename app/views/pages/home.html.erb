@@ -32,10 +32,27 @@
         %>
         <%= submit_tag "Search", class: "button button-match" %>
       <% end %>
+      <p>
+        <a href="#instruction" class="btn button button-match btn-lg list-inline">Find out about us</a>
+      </p>
     </div>
       <div id="banner"><a href="#instruction" class="btn button button-match btn-lg list-inline">Find out about us</a></div>
 
 </div>
+  <section id="instruction">
+    <div><h1>ABOUT US</h1>
+      <p>
+        Welcome to Football bay. Have you just recently moved area,
+        city or even country? if the answer to any of those questions was yes
+        and you are looking for a game to play then look no further.
+        Follow the simple steps below if you are looking to play a game of football,
+        competitive or otherwise.
+      </p>
+      <p>1. Find a game</p>
+      <p>2. Book a game</p>
+      <p>3. Play a game</p>      
+    </div>
+  </section>
   <h2 style="text-align: center">Recently added games</h2>
   <div class="cards_home">
     <% @matches_last.each do |match| %>
