@@ -6,7 +6,7 @@
       <div class="newcard mb-3">
         <p class="text-center">
           <%= link_to booking_path(booking), method: :delete, data: { confirm: "Are you sure?"} do %>
-          <i class="fas fa-trash-alt" style="font-size: 1em"></i>
+          <i class="fas fa-trash-alt" style="font-size: 1.5em"></i>
           <% end %>
           <span class="text-danger"><%= booking.match.title %></span>
           <%= booking.match.start_time.strftime("%A, %d %b %Y %l:%M%p") %> -
