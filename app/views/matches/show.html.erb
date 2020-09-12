@@ -11,7 +11,7 @@
   </div>
   
   <div id="map-venueshow"
-    style="width: 58vw; height: 600px;"
+    style="100%; height: 300px;"
     data-markers="<%= @marker.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_URL'] %>">
   </div>
@@ -32,7 +32,7 @@
   </h2>
   <h2>Skill level = <%= @match.skill_level %></h2>
 
-  <button id="show" class="button">Click here to contact host</button>
+  <button id="show" class="button">Contact Host</button>
   <div class="qrcode d-none">
     <h2>Scan the QR to Contact the Host</h2>
     <%= raw @qr.as_html %>
