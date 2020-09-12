@@ -40,6 +40,6 @@ end
   end
 
   def spots_available?
-    spots_left.zero? || spots_left.negative?
+    !spots_left.zero? || !spots_left.negative?
   end
 end
