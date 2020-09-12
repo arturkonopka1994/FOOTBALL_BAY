@@ -1,10 +1,20 @@
 class MatchesController < ApplicationController
 
   require 'rqrcode'
-
+  # searching by keyword(city) if not present searching by radius of 10km
   def index
     if params[:query].present?
       @matches = Match.global_search(params[:query])
+    elsif params[:by_address].present?
+      radius = params[:radius].present? ? params[:radius] : 10
+      venues = Venue.near(params[:by_address], radius)
+      @matches = []
+      venues.each do |venue|
+        venue.matches.each do |match|
+          @matches << match
+        end
+      end
+      @matches
     else
       @matches = Match.all
     end
