@@ -24,10 +24,10 @@
   <h2>Match Details:</h2><p><%= @match.description %></p>
   <h2>Players needed = <%= @match.spots_left %>/<%= @match.no_of_players%> <br>
     <% @match.spots_left.times do %>
-      <%= image_tag 'athlete', style:"height: 30px" %>
+      <%= image_tag 'athlete.jpg', style:"height: 30px" %>
     <% end %>
     <% @match.spots_taken.times do %>
-      <%= image_tag 'athlete-negative', style:"height: 30px" %>
+      <%= image_tag 'athlete-negative.jpg', style:"height: 30px" %>
     <% end %>
   </h2>
   <h2>Skill level = <%= @match.skill_level %></h2>
