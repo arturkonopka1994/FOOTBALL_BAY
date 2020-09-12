@@ -6,22 +6,23 @@
     <h1 class="home">Welcome to the Football Bay!</h1>
     <%= video_tag "video.mp4", loop: :loop, muted: :muted, autoplay: :autoplay, width: '100%' , class: "home_video" %>
   </div>
-<div class="container">
-  <div class="form-search">
-    <%= form_tag matches_path, method: :get do %>
-      <%= text_field_tag :by_address,
-        params[:by_address],
-        class: "form-control",
-        placeholder: "Postcode or City"
-      %>
-      <%= text_field_tag :radius,
-        params[:radius],
-        class: "form-control",
-        placeholder: "Radius"
-      %>
-      <%= submit_tag "Search", class: "button button-match" %>
-    <% end %>
- </div>
+  <div class="container">
+    <div class="form-search">
+      <%= form_tag matches_path, method: :get do %>
+        <%= text_field_tag :by_address,
+          params[:by_address],
+          class: "form-control",
+          placeholder: "Postcode or City"
+        %>
+        <%= text_field_tag :radius,
+          params[:radius],
+          class: "form-control",
+          placeholder: "Radius"
+        %>
+        <%= submit_tag "Search", class: "button button-match" %>
+      <% end %>
+    </div>
+  </div>
 </div>
   <h2 style="text-align: center">Recently added games</h2>
   <div class="cards_home">
