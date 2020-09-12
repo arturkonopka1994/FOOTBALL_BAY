@@ -33,8 +33,11 @@ require("trix")
 require("@rails/actiontext")
 
 import { initMapbox } from '../plugins/init_mapbox';
+import { initMapboxShow } from '../plugins/init_mapbox_venue_show';
+import { toggler } from '../plugins/show';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initMapboxShow();
+  toggler();
 });
-

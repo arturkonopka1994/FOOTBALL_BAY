@@ -1,14 +1,23 @@
 
 <% if @venue.photo.attached? %>
   <div class="banner" style="background-image: url('<%= cl_image_path @venue.photo.key %>');">
+    <h1><%= @venue.name.upcase %></h1>   
+    <%= link_to 'Create match', new_match_path(venue_id:@venue.id), class:"button" %>
+  </div>
 <% else %>
   <div class="banner" style="background-image: url(<%= image_tag 'under_construction.jpg' %>);">
+    <h1><%= @venue.name.upcase %></h1>   
+    <%= link_to 'Create match', new_match_path(venue_id:@venue.id), class:"button" %>
+  </div>
 <% end %>
-  <h1><%= @venue.name.upcase %></h1>   
-  <%= link_to 'Create match', new_match_path(venue_id:@venue.id), class:"button" %>
-</div>
 
 <div class="container">
+  <div id="map-venueshow"
+    style="width: 58vw; height: 600px;"
+    data-markers="<%= @marker.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_URL'] %>">
+  </div>
+  
   <div>
     <h2>Match Details</h2>
     <h3>Address:</h3>
@@ -26,6 +35,7 @@
       <p>No</p>
     <% end %>
   </div>
+  
 
   <div>
     <h2>Reviews</h2>
@@ -42,3 +52,4 @@
   </div>
 
 </div>
+

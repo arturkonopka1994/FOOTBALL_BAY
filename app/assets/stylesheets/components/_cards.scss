@@ -3,5 +3,34 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   flex-grow: 1;
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.matches-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  flex-grow: 1;
+  background-size: cover;
+  height: 150px;
+  border-radius: 1px;
+  box-shadow: 1 1 10px rgba(0,0,0,0.2);
+  justify-content: space-around;
+  color: #1FE378;
   margin-right: 16px;
+  padding: 16px;
+  margin-top: 64px;
+}
+
+.match-card {
+  border: 1px blue solid;
+  border-radius: 1%;
+  padding-top: 15px;
+  padding-left: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 350px;
+  height: 200px;
+  color: #1FE378;
 }

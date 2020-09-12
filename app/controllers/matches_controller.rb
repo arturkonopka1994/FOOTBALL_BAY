@@ -13,6 +13,13 @@ class MatchesController < ApplicationController
   def show
     @match = Match.find(params[:id])
     @qr = RQRCode::QRCode.new( 'href="https://wa.me/447376676874', :size => 4, :level => :h )
+    
+    @venue = @match.venue
+    @marker = 
+      [{
+        lat: @venue.latitude,
+        lng: @venue.longitude,
+      }]
   end
 
   def new
@@ -61,6 +68,6 @@ class MatchesController < ApplicationController
 
   def match_params
     params.require(:match).permit(:skill_level, :no_of_players, :start_time, :end_time,
-    :description, :gender, :venue_id)
+    :description, :gender, :venue_id, :title, :photo)
   end
 end

@@ -1,8 +1,40 @@
-<h1><%= @match.start_time %></h1>
-<%= link_to 'Booking', match_bookings_path(@match), method: :post  %>
-<%= link_to 'edit match', edit_match_path %>
-<%= link_to 'delete match', match_path, method: :destroy %>
-<%= link_to 'back to matches', matches_path %>
+<%# <%= link_to 'edit match', edit_match_path, class: "button" %>
+<%# <%= link_to 'back to matches', matches_path, class: "button" %>
 
+<div class="container">
 
-<%= raw @qr.as_html %>
+  <div class="text-center">
+    <% if @match.title != nil %>
+      <h1><%= @match.title.capitalize %></h1>
+    <% end %>
+    <%= link_to 'Book Match', match_bookings_path(@match), method: :post, class: "button booking"  %>
+  </div>
+  
+  <div id="map-venueshow"
+    style="100%; height: 300px;"
+    data-markers="<%= @marker.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_URL'] %>">
+  </div>
+
+  <div class="newcard_matchshow">
+    <p>Postcode <%= @match.venue.post_code %></p>
+    <p>Match Start Time <%= @match.start_time %></p>
+  </div>
+
+  <h2>Match Details:</h2><p><%= @match.description %></p>
+  <h2>Players needed = <%= @match.spots_left %>/<%= @match.no_of_players%> <br>
+    <% @match.spots_left.times do %>
+      <%= image_tag 'athlete.jpg', style:"height: 30px" %>
+    <% end %>
+    <% @match.spots_taken.times do %>
+      <%= image_tag 'athlete-negative.jpg', style:"height: 30px" %>
+    <% end %>
+  </h2>
+  <h2>Skill level = <%= @match.skill_level %></h2>
+
+  <button id="show" class="button">Contact Host</button>
+  <div class="qrcode d-none">
+    <h2>Scan the QR to Contact the Host</h2>
+    <%= raw @qr.as_html %>
+  </div>
+</div>

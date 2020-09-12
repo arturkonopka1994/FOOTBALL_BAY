@@ -4,6 +4,7 @@ class Match < ApplicationRecord
   has_one :chatroom
   has_many :bookings, dependent: :destroy
   has_many :users, through: :bookings
+
   # before_validation :valid_venue_time?
 
   validates :description, length: { minimum: 20 }, presence: true
@@ -32,6 +33,10 @@ end
 
   def spots_left
     no_of_players - self.bookings.count
+  end
+  
+  def spots_taken
+    self.bookings.count
   end
 
   def spots_available?

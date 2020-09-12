@@ -24,6 +24,23 @@ a:hover {
 
 .button.position-top{
   position: absolute;
-  bottom: 730px;
-  margin-left: 8px;
+  margin-left: 16px;
+  margin-top: 8px; 
+}
+
+.button-match {
+  height: 40px;
+}
+
+
+.toggle-content {
+	display: none;
+}
+
+.toggle-content.is-visible {
+	display: block;
+}
+
+.booking {
+  width: 100%;
 }
