@@ -32,10 +32,14 @@ end
   end
 
   def spots_left
-    no_of_players - self.bookings.count
+    [no_of_players - bookings.count, 0].max
+  end
+
+  def spots_taken
+    self.bookings.count
   end
 
   def spots_available?
-    spots_left.zero? || spots_left.negative?
+    !spots_left.zero? || !spots_left.negative?
   end
 end

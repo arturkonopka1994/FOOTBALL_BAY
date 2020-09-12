@@ -1,10 +1,19 @@
 class MatchesController < ApplicationController
-
   require 'rqrcode'
-
+  # searching by keyword(city) if not present searching by radius of 10km
   def index
     if params[:query].present?
       @matches = Match.global_search(params[:query])
+    elsif params[:by_address].present?
+      radius = params[:radius].present? ? params[:radius] : 10
+      venues = Venue.near(params[:by_address], radius)
+      @matches = []
+      venues.each do |venue|
+        venue.matches.each do |match|
+          @matches << match
+        end
+      end
+      @matches
     else
       @matches = Match.all
     end
@@ -13,6 +22,13 @@ class MatchesController < ApplicationController
   def show
     @match = Match.find(params[:id])
     @qr = RQRCode::QRCode.new( 'href="https://wa.me/447376676874', :size => 4, :level => :h )
+
+    @venue = @match.venue
+    @marker =
+      [{
+        lat: @venue.latitude,
+        lng: @venue.longitude,
+      }]
   end
 
   def new
@@ -55,7 +71,6 @@ class MatchesController < ApplicationController
     @match.destroy
     redirect_to matches_path
   end
-
 
   private
 

@@ -12,14 +12,18 @@
   color: white;
 }
 .newcard_matchshow{
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   font-size: 11px;
   height: 150px;
   width: 150px;
   position: absolute;
-  top: 130px;
+  top: 196px;
   height: 57px;
   width: 250px;
+  background-color: #ffffffa8;
+  border-radius: 4px;
+  margin-left: 16px;
+  padding: 3px;
 }
 
 .newcard_matchshow a {
