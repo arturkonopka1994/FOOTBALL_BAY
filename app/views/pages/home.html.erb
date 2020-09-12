@@ -10,12 +10,13 @@
   <div class="container">
     <div class="form-search">
       <%= form_tag matches_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a match"
+        <%= text_field_tag :by_address,
+          params[:by_address],
+          class: "form-control",
+          placeholder: "Postcode or City"
         %>
         <%= submit_tag "Search", class: "button button-match" %>
+
       <% end %>
     </div>
   </div>
@@ -63,30 +64,5 @@
         <%# <%= link_to 'Check it out', match_path(match), "button" %>
       </div>
     </div>
-
-<!-- <div class="container">
-  <div class="form-search">
-    <%= form_tag matches_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Postcode or City"
-      %>
-      <%= submit_tag "Search", class: "button button-match" %>
     <% end %>
-  </div>
-</div> -->
-<div class="container">
-  <div class="form-search">
-    <%= form_tag matches_path, method: :get do %>
-      <%= text_field_tag :by_address,
-        params[:by_address],
-        class: "form-control",
-        placeholder: "Postcode or City"
-      %>
-      <%= submit_tag "Search", class: "button button-match" %>
-
-    <% end %>
-  </div>
-
 </div>
