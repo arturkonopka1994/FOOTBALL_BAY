@@ -1,13 +1,69 @@
-<div class="home-video-wrapper">
-  <!-- <video loop muted autoplay preload="auto">
-    <source src="video.mp4"  type="video/mp4">
-  </video> -->
-  <h1 class="home">Welcome to the Football Bay!</h1>
-  <%= video_tag "video.mp4", loop: :loop, muted: :muted, autoplay: :autoplay, class: "home_video" %>
-  
-  
-  
+<div class="banner_home">
+  <div class="home-video-wrapper">
+    <!-- <video loop muted autoplay preload="auto">
+      <source src="video.mp4"  type="video/mp4">
+    </video> -->
+    <h1 class="home">Welcome to the Football Bay!</h1>
+    <%= video_tag "video.mp4", loop: :loop, muted: :muted, autoplay: :autoplay, width: '100%' , class: "home_video" %>
+  </div>
+
+  <div class="container">
+    <div class="form-search">
+      <%= form_tag matches_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a match"
+        %>
+        <%= submit_tag "Search", class: "button button-match" %>
+      <% end %>
+    </div>
+  </div>
 </div>
+
+
+<div class="container">
+  
+  <h2 style="text-align: center">Recently added games</h2>
+  <div class="cards_home">
+    <% @matches_last.each do |match| %>
+    <div class="cardss">
+      <div class="card_top">
+        <% if match.venue.photo.attached? %>
+          <%= cl_image_tag  match.venue.photo.key, :width=>150, :height=>100, :crop=>"fill" %>
+        <% else %>
+          <%= image_tag 'under_construction.jpg', width: "150px" %>
+        <% end %>
+      </div>
+      <div class="card_body">
+        <h3><%= match.title.capitalize %></h3>
+        <p><%= match.venue.post_code %></p>
+        <p><%= match.start_time.strftime(" %e %a %b  %l:%M %p") %></p>
+        <%# <%= link_to 'Check it out', match_path(match), "button" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+  <h2 style="text-align: center">Games starting soon</h2>
+  <div class="cards_home">
+    <% @matches_first.each do |match| %>
+    <div class="cardss">
+      <div class="card_top">
+        <% if match.venue.photo.attached? %>
+          <%= cl_image_tag  match.venue.photo.key, :width=>150, :height=>100, :crop=>"fill" %>
+        <% else %>
+          <%= image_tag 'under_construction.jpg', width: "150px" %>
+        <% end %>
+      </div>
+      <div class="card_body">
+        <h3><%= match.title.capitalize %></h3>
+        <p><%= match.venue.post_code %></p>
+        <p><%= match.start_time.strftime(" %e %a %b  %l:%M %p") %></p>
+        <%# <%= link_to 'Check it out', match_path(match), "button" %>
+      </div>
+    </div>
+
 <!-- <div class="container">
   <div class="form-search">
     <%= form_tag matches_path, method: :get do %>
@@ -29,6 +85,8 @@
         placeholder: "Postcode or City"
       %>
       <%= submit_tag "Search", class: "button button-match" %>
+
     <% end %>
   </div>
+
 </div>

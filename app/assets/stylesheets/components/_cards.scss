@@ -34,3 +34,45 @@
   height: 200px;
   color: #1FE378;
 }
+
+
+
+
+
+
+.cards_home {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  gap: 32px;
+  justify-content: center;
+}
+.cardss {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  background-color: white;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  width: 150px;
+ }
+
+ .cardss h3 {
+   font-size: 13px;
+ }
+
+ .cardss p {
+   font-size: 11px;
+   margin: 0;
+ }
+
+.cardss:hover{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.card_top img {
+  border-radius: 5px 5px 0 0;
+}
+
+.card_body {
+  padding: 2px 8px;
+}
+
