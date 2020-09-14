@@ -21,7 +21,7 @@ td.white { border-color: #fff; }
 //
 .home_video {
   width: 100vw;
-  height: 100vh -49px;
+  height: 100vh;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -35,7 +35,6 @@ td.white { border-color: #fff; }
   //background: rgba(0, 0, 0, 0.2);
 
   height: 100%;
-
   display: flex;
   justify-content: center;
 }
@@ -44,13 +43,15 @@ h1.home {
   color: white;
   position: relative;
   text-align: center;
+  height: 70px;
 }
 #instruction {
-  margin: 200px;
-  padding: 100px;
+  // margin: 200px;
+  // padding: 100px;
+  margin-top: 350px;
   text-align: center;
-  color: #919e95;
-  text-shadow: 1px 1px 5px black;
+  // color: #919e95;
+  // text-shadow: 1px 1px 5px black;
 }
 #banner{
   text-align: center;
