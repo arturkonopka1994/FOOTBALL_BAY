@@ -36,7 +36,6 @@
         <a href="#instruction" class="btn button button-match btn-lg list-inline">Find out about us</a>
       </p>
     </div>
-      <div id="banner"><a href="#instruction" class="btn button button-match btn-lg list-inline">Find out about us</a></div>
 
 </div>
   <section id="instruction">
@@ -59,16 +58,16 @@
     <div class="cardss">
       <div class="card_top">
         <% if match.venue.photo.attached? %>
-          <%= cl_image_tag  match.venue.photo.key, :width=>150, :height=>100, :crop=>"fill" %>
+          <%= cl_image_tag  match.venue.photo.key, :width=>184, :height=>119, :crop=>"fill" %>
         <% else %>
-          <%= image_tag 'under_construction.jpg', width: "150px" %>
+          <%= image_tag 'under_construction.jpg', width: "179px" %>
         <% end %>
       </div>
       <div class="card_body">
-        <h3><%= match.title.capitalize %></h3>
-        <p><%= match.venue.post_code %></p>
-        <p><%= match.start_time.strftime(" %e %a %b  %l:%M %p") %></p>
-        <%# <%= link_to 'Check it out', match_path(match), "button" %>
+        <h3><strong><%= match.title.capitalize %></strong></h3>
+        <p> <strong>Postcode</strong> : <%= match.venue.post_code %></p>
+        <p> <strong>Starts</strong> : <%= match.start_time.strftime(" %e %a %b  %l:%M %p") %></p>
+        <%= link_to 'Check it out', match_path(match), class: "button small" %>
       </div>
     </div>
     <% end %>
@@ -82,16 +81,16 @@
     <div class="cardss">
       <div class="card_top">
         <% if match.venue.photo.attached? %>
-          <%= cl_image_tag  match.venue.photo.key, :width=>150, :height=>100, :crop=>"fill" %>
+          <%= cl_image_tag  match.venue.photo.key, :width=>184, :height=>119, :crop=>"fill" %>
         <% else %>
-          <%= image_tag 'under_construction.jpg', width: "150px" %>
+          <%= image_tag 'under_construction.jpg', width: "179px" %>
         <% end %>
       </div>
       <div class="card_body">
-        <h3><%= match.title.capitalize %></h3>
-        <p><%= match.venue.post_code %></p>
-        <p><%= match.start_time.strftime(" %e %a %b  %l:%M %p") %></p>
-        <%# <%= link_to 'Check it out', match_path(match), "button" %>
+        <h3><strong><%= match.title.capitalize %></strong></h3>
+        <p> <strong>Postcode</strong> : <%= match.venue.post_code %></p>
+        <p> <strong>Starts</strong> : <%= match.start_time.strftime(" %e %a %b  %l:%M %p") %></p>
+        <%= link_to 'Check it out', match_path(match), class: "button small" %>
       </div>
     </div>
     <% end %>
