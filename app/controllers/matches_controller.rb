@@ -30,7 +30,7 @@ class MatchesController < ApplicationController
 
   def show
     @match = Match.find(params[:id])
-    @qr = RQRCode::QRCode.new( 'https://wa.me/#{@match.mobile_number}', :size => 4, :level => :h )
+    @qr = RQRCode::QRCode.new( "https://wa.me/#{@match.mobile_number}", :size => 4, :level => :h )
     # regex for number =~ /[0]|[4][4]|[7]\d\d\d\d\d\d\d\d\d/
 
     @venue = @match.venue
@@ -56,16 +56,14 @@ class MatchesController < ApplicationController
       @match.venue = @venue
     end
     # for qrcode
-    number = @match.mobile_number
-    if /[0]|[4][4]|[7]\d\d\d\d\d\d\d\d\d/.match?(number)
-      if @match.save!
-        redirect_to match_path(@match)
-      else
-        render 'new'
-      end
+    
+    
+    if @match.save
+      redirect_to match_path(@match)
     else
       render 'new'
     end
+  
 
   end
 
