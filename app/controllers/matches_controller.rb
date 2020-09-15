@@ -55,9 +55,6 @@ class MatchesController < ApplicationController
       @venue = Venue.find(params["match"]["venue_id"])
       @match.venue = @venue
     end
-    # for qrcode
-    
-    
     if @match.save
       redirect_to match_path(@match)
     else
