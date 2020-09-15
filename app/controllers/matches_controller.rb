@@ -30,7 +30,7 @@ class MatchesController < ApplicationController
 
   def show
     @match = Match.find(params[:id])
-    @qr = RQRCode::QRCode.new( 'href="https://wa.me/447376676874', :size => 4, :level => :h )
+    @qr = RQRCode::QRCode.new( 'https://wa.me/447376676874', :size => 4, :level => :h )
 
     @venue = @match.venue
     @marker =
