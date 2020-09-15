@@ -39,4 +39,9 @@
     <h2>Scan the QR to Contact the Host</h2>
     <%= raw @qr.as_html %>
   </div>
+
+  <%= form_tag bookings_path do %>
+  <%= hidden_field_tag 'match_id', @match.id %>
+  <%= submit_tag 'Pay', class: 'btn btn-primary' %>
+<% end %>
 </div>

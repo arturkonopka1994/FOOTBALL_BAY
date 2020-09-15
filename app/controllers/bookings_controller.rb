@@ -11,11 +11,27 @@ class BookingsController < ApplicationController
     @booking.match = @match
     @booking.user = current_user
     if @booking.save! && @match.spots_available?
-      redirect_to dashboard_path
+      session = Stripe::Checkout::Session.create(
+        payments_method_types: ['card'],
+        line_items: [{
+          name: @match.id,
+          amount: @match.venue.price_cents,
+          currency: 'gbp',
+          quantity: 1
+        }],
+        success_url: booking_url(@booking),
+        cancel_url: new_match_booking_url(@match)
+        )
+      @booking.update(checkout_session_id: session.id)
+      redirect_to new_order_payment_path(@booking)
     else
       flash[:notice] = "Fully booked"
       redirect_to matches_path
     end
+  end
+
+  def show
+    @booking = current_user.booking.find(params[:id])
   end
 
   def destroy
