@@ -25,12 +25,26 @@
           class: "form-control",
           placeholder: "Postcode or City"
         %>
-        <%= text_field_tag :radius,
-          params[:radius],
-          class: "form-control",
-          placeholder: "Radius"
-        %>
-        <%= submit_tag "Search", class: "button button-match" %>
+        <p class="text-center white-text">Choose the radius of your search</p>
+        <ul class="list-inline d-flex justify-content-around white-text">
+          <li class="list-inline-item">
+            <%= radio_button_tag :radius, 1, params[:radius] %>
+            <p>1km</p>
+          </li>
+          <li class="list-inline-item">
+            <%= radio_button_tag :radius, 3, params[:radius] %>
+            <p>3km</p>
+          </li>
+          <li class="list-inline-item">
+            <%= radio_button_tag :radius,5, params[:radius] %>
+            <p>5km</p>
+          </li>
+          <li class="list-inline-item">
+            <%= radio_button_tag :radius,10, params[:radius] %>
+            <p>10km</p>
+          </li>
+        </ul>
+        <%= submit_tag "Search For The Game", class: "btn button button-match btn-lg list-inline", style: "width: -webkit-fill-available;" %>
       <% end %>
       <p>
         <a href="#instruction" class="btn button button-match btn-lg list-inline", style="width: -webkit-fill-available;">Find out about us</a>
