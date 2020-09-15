@@ -5,11 +5,12 @@ class Match < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :users, through: :bookings
 
-  # before_validation :valid_venue_time?
+  before_validation :valid_venue_time?
 
   validates :description, length: { minimum: 20 }, presence: true
   validates :start_time, :end_time, presence: true
   validates :skill_level, presence: true
+  validates :mobile_number, presence: true
 
   include PgSearch::Model
   pg_search_scope :global_search,

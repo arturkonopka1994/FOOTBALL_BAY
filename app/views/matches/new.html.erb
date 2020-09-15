@@ -13,6 +13,7 @@
   <%= m.input :skill_level, as: :radio_buttons, collection: ["Just for fun", "Try Hard"] %>
   <%= m.input :start_time, as: :datetime, :minute_step => 15 %>
   <%= m.input :end_time, as: :datetime, :minute_step => 15 %>
+  <%= m.input :mobile_number %>
   <%= m.input :description %>
   <%= m.button :submit %>
   <% end %>

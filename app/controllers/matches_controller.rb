@@ -30,7 +30,8 @@ class MatchesController < ApplicationController
 
   def show
     @match = Match.find(params[:id])
-    @qr = RQRCode::QRCode.new( 'https://wa.me/447376676874', :size => 4, :level => :h )
+    @qr = RQRCode::QRCode.new( 'https://wa.me/#{@match.mobile_number}', :size => 4, :level => :h )
+    # regex for number =~ /[0]|[4][4]|[7]\d\d\d\d\d\d\d\d\d/
 
     @venue = @match.venue
     @marker =
@@ -54,11 +55,18 @@ class MatchesController < ApplicationController
       @venue = Venue.find(params["match"]["venue_id"])
       @match.venue = @venue
     end
-    if @match.save!
-      redirect_to match_path(@match)
+    # for qrcode
+    number = @match.mobile_number
+    if /[0]|[4][4]|[7]\d\d\d\d\d\d\d\d\d/.match?(number)
+      if @match.save!
+        redirect_to match_path(@match)
+      else
+        render 'new'
+      end
     else
       render 'new'
     end
+
   end
 
   def edit
@@ -85,6 +93,6 @@ class MatchesController < ApplicationController
 
   def match_params
     params.require(:match).permit(:skill_level, :no_of_players, :start_time, :end_time,
-    :description, :gender, :venue_id, :title, :photo)
+    :description, :gender, :venue_id, :title, :photo, :mobile_number)
   end
 end
