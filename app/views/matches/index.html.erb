@@ -29,6 +29,7 @@
   <p class="button button-match"><%= link_to 'create a match', new_match_path %></p>
   
   <div class="cards_games">
+    <% @matches = @matches.select{ |match| match.start_time >= DateTime.now } %>
     <% @matches.each do |match| %>
     <div class="cardss">
       <div class="card_top">
