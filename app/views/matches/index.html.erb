@@ -1,9 +1,10 @@
-<div class="background-match">
+<!--<div class="background-match">
   <div class="title-match">
     <h1>List of matches</h1>
   </div>
+
   <div class="content-match">
-    <p class="button button-match"><%= link_to 'create a match', new_match_path %></p>
+    
     <div class="matches-cards">
       <% @matches.each do |match| %>
       <% if match.venue.photo.attached? %>
@@ -18,5 +19,32 @@
         </div>
       <% end %>
     </div>
+  </div>
+</div>-->
+
+<div class="container">
+  <div class="title-match">
+    <h1>Available Matches</h1>
+  </div>
+  <p class="button button-match"><%= link_to 'create a match', new_match_path %></p>
+  
+  <div class="cards_games">
+    <% @matches.each do |match| %>
+    <div class="cardss">
+      <div class="card_top">
+        <% if match.venue.photo.attached? %>
+          <%= cl_image_tag  match.venue.photo.key, :width=>184, :height=>119, :crop=>"fill" %>
+        <% else %>
+          <%= image_tag 'under_construction.jpg', width: "179px" %>
+        <% end %>
+      </div>
+      <div class="card_body">
+        <h3><strong><%= match.title.capitalize %></strong></h3>
+        <p> <strong>Postcode</strong> : <%= match.venue.post_code %></p>
+        <p> <strong>Starts</strong> : <%= match.start_time.strftime(" %e %a %b  %l:%M %p") %></p>
+        <%= link_to 'Check it out', match_path(match), class: "button small" %>
+      </div>
+    </div>
+    <% end %>
   </div>
 </div>

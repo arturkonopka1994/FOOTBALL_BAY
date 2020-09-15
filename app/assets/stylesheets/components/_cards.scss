@@ -35,10 +35,12 @@
   color: #1FE378;
 }
 
-
-
-
-
+.cards_games {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  gap: 32px;
+  justify-content: center;
+}
 
 .cards_home {
   display: grid;
