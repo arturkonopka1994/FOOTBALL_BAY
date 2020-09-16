@@ -22,27 +22,32 @@
   </div>
 </div>-->
 
-<div class="container">
-  <div class="title-match">
-    <h1>Available Matches</h1>
-  </div>
-  <p class="button button-match"><%= link_to 'create a match', new_match_path %></p>
   
+<div class="container">
+  <div class="title-match text-center">
+    <h1>Available Matches</h1>
+    <%= link_to 'Create Match', new_match_path, class:"button button-match" %>
+  </div>
   <div class="cards_games">
     <% @matches = @matches.select{ |match| match.start_time >= DateTime.now } %>
     <% @matches.each do |match| %>
-    <div class="cardss">
+    <div class="cardss games">
       <div class="card_top">
         <% if match.venue.photo.attached? %>
-          <%= cl_image_tag  match.venue.photo.key, :width=>184, :height=>119, :crop=>"fill" %>
+          <%= cl_image_tag  match.venue.photo.key, :width=>250, :height=>167, :crop=>"fill" %>
         <% else %>
-          <%= image_tag 'under_construction.jpg', width: "179px" %>
+          <%= image_tag 'under_construction.jpg', width: "250px" %>
         <% end %>
       </div>
       <div class="card_body">
-        <h3><strong><%= match.title.capitalize %></strong></h3>
-        <p> <strong>Postcode</strong> : <%= match.venue.post_code %></p>
-        <p> <strong>Starts</strong> : <%= match.start_time.strftime(" %e %a %b  %l:%M %p") %></p>
+        <div>
+          <h3><strong><%= match.title.capitalize %></strong></h3>
+          <p> <strong>Starts</strong> : <%= match.start_time.strftime(" %e %a %b  %l:%M %p") %></p>
+        </div>
+        <div class="d-flex flex-row-reverse justify-content-between">
+          <p> <strong>Spots</strong> : <%= match.spots_left %>/<%= match.no_of_players %></p>
+          <p> <strong>Postcode</strong> : <%= match.venue.post_code %></p>
+        </div>
         <%= link_to 'Check it out', match_path(match), class: "button small" %>
       </div>
     </div>
