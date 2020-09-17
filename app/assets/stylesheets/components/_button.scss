@@ -25,11 +25,12 @@ a:hover {
 .button.position-top{
   position: absolute;
   margin-left: 16px;
-  margin-top: 8px; 
+  margin-top: 8px;
 }
 
 .button-match {
   height: 40px;
+  width: 30%;
 }
 
 
@@ -43,4 +44,31 @@ a:hover {
 
 .booking {
   width: 100%;
+}
+
+.button-dashboard {
+  height: 40px;
+  background-color: #2BFF8B;
+  border: none;
+  border-radius: 8px;
+  color: #013D17;
+  padding: 8px 8px;
+  text-align: right;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 400;
+  weight: 40px;
+}
+
+.fas {
+  color: black;
+  position:relative; left: -10px; top:30px;
+}
+
+.button.small {
+  padding: 4px 4px;
+  margin-bottom: 4px;
+  margin-top: 16px;
+  display: block;
 }

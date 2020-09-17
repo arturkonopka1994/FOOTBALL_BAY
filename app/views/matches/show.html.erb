@@ -19,8 +19,9 @@
   </div>
 
   <div class="newcard_matchshow">
-    <p>Postcode <%= @match.venue.post_code %></p>
-    <p>Match Start Time <%= @match.start_time %></p>
+    <p>Address - <%= @match.venue.address_line_1 %></p>
+    <p>Postcode - <%= @match.venue.post_code %></p>
+    <p>Match Start - <%= @match.start_time.strftime(" %e %a %b  %l:%M %p") %></p>
   </div>
 
   <h2>Match Details:</h2><p><%= @match.description %></p>

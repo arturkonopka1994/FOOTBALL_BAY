@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 2020_09_17_181428) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "title"
     t.text "description"
+    t.text "mobile_number"
     t.index ["user_id"], name: "index_matches_on_user_id"
     t.index ["venue_id"], name: "index_matches_on_venue_id"
   end

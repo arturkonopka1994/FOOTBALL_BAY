@@ -1,22 +1,115 @@
-<div class="home-video-wrapper">
-  <!-- <video loop muted autoplay preload="auto">
-    <source src="video.mp4"  type="video/mp4">
-  </video> -->
-  <h1 class="home">Welcome to the Football Bay!</h1>
-  <%= video_tag "video.mp4", loop: :loop, muted: :muted, autoplay: :autoplay, class: "home_video" %>
-  
-  
-  
-</div>
-<div class="container">
-  <div class="form-search">
-    <%= form_tag matches_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find a match"
-      %>
-      <%= submit_tag "Search", class: "button button-match" %>
-    <% end %>
+
+<!--<div id="banner">
+    	<h1>Football Bay</h1>
+    	<p>New in town and want to play a game, look no further</p>      
+	
+    <p>
+      <a href="#" class="btn btn-primary btn-lg list-inline">Explore</a>
+    </p>
+</div>-->
+
+
+<div class="banner_home">
+  <div class="home-video-wrapper">
+    <!-- <video loop muted autoplay preload="auto">
+      <source src="video.mp4"  type="video/mp4">
+    </video> -->
+    <h1 class="home">Welcome to the Football Bay!</h1>
+    <%= video_tag "video.mp4", loop: :loop, muted: :muted, autoplay: :autoplay, width: '100%' , class: "home_video" %>
   </div>
+  <div class="container">
+    <div class="form-search">
+      <%= form_tag matches_path, method: :get do %>
+        <%= text_field_tag :by_address,
+          params[:by_address],
+          class: "form-control",
+          placeholder: "Postcode or City"
+        %>
+        <p class="text-center white-text">Choose the radius of your search</p>
+        <ul class="list-inline d-flex justify-content-around white-text">
+          <li class="list-inline-item">
+            <%= radio_button_tag :radius, 1, params[:radius] %>
+            <p>1km</p>
+          </li>
+          <li class="list-inline-item">
+            <%= radio_button_tag :radius, 3, params[:radius] %>
+            <p>3km</p>
+          </li>
+          <li class="list-inline-item">
+            <%= radio_button_tag :radius,5, params[:radius] %>
+            <p>5km</p>
+          </li>
+          <li class="list-inline-item">
+            <%= radio_button_tag :radius,10, params[:radius] %>
+            <p>10km</p>
+          </li>
+        </ul>
+        <%= submit_tag "Search For The Game", class: "btn button button-match btn-lg list-inline", style: "width: -webkit-fill-available;" %>
+      <% end %>
+      <p>
+        <a href="#instruction" class="btn button button-match btn-lg list-inline", style="width: -webkit-fill-available;">Find out about us</a>
+      </p>
+    </div>
+
+</div>
+  <section id="instruction">
+    <div><h1>ABOUT US</h1>
+      <p>
+        Welcome to Football bay. Have you just recently moved area,
+        city or even country? if the answer to any of those questions was yes
+        and you are looking for a game to play then look no further.
+        Follow the simple steps below if you are looking to play a game of football,
+        competitive or otherwise.
+      </p>
+      <p>1. Find a game</p>
+      <p>2. Book a game</p>
+      <p>3. Play a game</p>      
+    </div>
+    <div class="icons">
+      <p><i class="far fa-futbol"></i><i class="fas fa-search"></i></p>
+      <p></p>      
+    </div>    
+  </section>
+  <h2 style="text-align: center">Recently added games</h2>
+  <div class="cards_home">
+    <% @matches_last.each do |match| %>
+    <div class="cardss">
+      <div class="card_top">
+        <% if match.venue.photo.attached? %>
+          <%= cl_image_tag  match.venue.photo.key, :width=>184, :height=>119, :crop=>"fill" %>
+        <% else %>
+          <%= image_tag 'under_construction.jpg', width: "179px" %>
+        <% end %>
+      </div>
+      <div class="card_body">
+        <h3><strong><%= match.title.capitalize %></strong></h3>
+        <p> <strong>Postcode</strong> : <%= match.venue.post_code %></p>
+        <p> <strong>Starts</strong> : <%= match.start_time.strftime(" %e %a %b  %l:%M %p") %></p>
+        <%= link_to 'Check it out', match_path(match), class: "button small" %>
+      </div>
+    </div>
+    <% end %>
+        
+  </div>
+
+
+  <h2 style="text-align: center">Games starting soon</h2>
+  <div class="cards_home">
+    <% @matches_first.each do |match| %>
+    <div class="cardss">
+      <div class="card_top">
+        <% if match.venue.photo.attached? %>
+          <%= cl_image_tag  match.venue.photo.key, :width=>184, :height=>119, :crop=>"fill" %>
+        <% else %>
+          <%= image_tag 'under_construction.jpg', width: "179px" %>
+        <% end %>
+      </div>
+      <div class="card_body">
+        <h3><strong><%= match.title.capitalize %></strong></h3>
+        <p> <strong>Postcode</strong> : <%= match.venue.post_code %></p>
+        <p> <strong>Starts</strong> : <%= match.start_time.strftime(" %e %a %b  %l:%M %p") %></p>
+        <%= link_to 'Check it out', match_path(match), class: "button small" %>
+      </div>
+    </div>
+    <% end %>
 </div>

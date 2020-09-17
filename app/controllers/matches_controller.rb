@@ -1,10 +1,28 @@
 class MatchesController < ApplicationController
-
   require 'rqrcode'
-
+  # searching by keyword(city) if not present searching by radius of 10km
   def index
-    if params[:query].present?
-      @matches = Match.global_search(params[:query])
+    # raise
+    # if params[:query].present?
+    #   @matches = Match.global_search(params[:query])
+    #   if @matches == []
+    #     @matches = Match.all
+    #   else
+    #     @matches
+    #   end
+    if params[:by_address].present?
+      radius = params[:radius].present? ? params[:radius] : 10
+      venues = Venue.near(params[:by_address], radius)
+      @matches = []
+      venues.each do |venue|
+        venue.matches.each do |match|
+          @matches << match
+        end
+      end
+      if @matches == []
+        @matches = Match.all
+      end
+      @matches
     else
       @matches = Match.all
     end
@@ -12,10 +30,11 @@ class MatchesController < ApplicationController
 
   def show
     @match = Match.find(params[:id])
-    @qr = RQRCode::QRCode.new( 'href="https://wa.me/447376676874', :size => 4, :level => :h )
-    
+    @qr = RQRCode::QRCode.new( "https://wa.me/#{@match.mobile_number}", :size => 4, :level => :h )
+    # regex for number =~ /[0]|[4][4]|[7]\d\d\d\d\d\d\d\d\d/
+
     @venue = @match.venue
-    @marker = 
+    @marker =
       [{
         lat: @venue.latitude,
         lng: @venue.longitude,
@@ -36,11 +55,13 @@ class MatchesController < ApplicationController
       @venue = Venue.find(params["match"]["venue_id"])
       @match.venue = @venue
     end
-    if @match.save!
+    if @match.save
       redirect_to match_path(@match)
     else
       render 'new'
     end
+  
+
   end
 
   def edit
@@ -63,11 +84,10 @@ class MatchesController < ApplicationController
     redirect_to matches_path
   end
 
-
   private
 
   def match_params
     params.require(:match).permit(:skill_level, :no_of_players, :start_time, :end_time,
-    :description, :gender, :venue_id, :title, :photo)
+    :description, :gender, :venue_id, :title, :photo, :mobile_number)
   end
 end
