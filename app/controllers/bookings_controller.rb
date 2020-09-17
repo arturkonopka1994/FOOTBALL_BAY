@@ -9,12 +9,13 @@ class BookingsController < ApplicationController
     @match = Match.find(params[:match_id])
     @booking = Booking.new
     @booking.match = @match
+    @booking.state = 'pending'
     @booking.user = current_user
     if @booking.save! && @match.spots_available?
       session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
         line_items: [{
-          name: @match.id,
+          name: @match.venue.name,
           amount: @match.venue.price_cents,
           currency: 'gbp',
           quantity: 1
