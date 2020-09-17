@@ -7,13 +7,15 @@ class Match < ApplicationRecord
 
   before_validation :valid_venue_time?
 
+
   validates :description, length: { minimum: 10 }, presence: true
-  validates :title, presence: true
-  validates :venue, presence: true
-  validates :no_of_players, presence: true
-  validates :start_time, :end_time, presence: true
+  validates :start_time, :end_time, :title, :venue, :no_of_players, presence: true
+
   validates :skill_level, presence: true
   validates :mobile_number, presence: true
+  validates :no_of_players, presence: true
+  validates :title, presence: true
+
   validates_format_of :mobile_number, with: /^([+][4][4])[7]\d{9}$/, multiline: true
 
   include PgSearch::Model
@@ -37,7 +39,7 @@ end
   end
 
   def spots_left
-    [no_of_players - bookings.count, 0].max
+    [(no_of_players || 0) - bookings.count, 0].max
   end
 
   def spots_taken
