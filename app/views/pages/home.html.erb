@@ -9,7 +9,7 @@
 </div>-->
 
 
-<div class="banner_home">
+<div class="banner_home background-shadow">
   <div class="home-video-wrapper">
     <!-- <video loop muted autoplay preload="auto">
       <source src="video.mp4"  type="video/mp4">
@@ -18,14 +18,14 @@
     <%= video_tag "video.mp4", loop: :loop, muted: :muted, autoplay: :autoplay, width: '100%' , class: "home_video" %>
   </div>
   <div class="container">
-    <div class="form-search">
+    <div class="form-search ">
       <%= form_tag matches_path, method: :get do %>
         <%= text_field_tag :by_address,
           params[:by_address],
           class: "form-control",
           placeholder: "Postcode or City"
         %>
-        <p class="text-center white-text">Choose the radius of your search</p>
+        <p class="text-center white-text margin-top">Radius(km)</p>
         <ul class="list-inline d-flex justify-content-around white-text">
           <li class="list-inline-item">
             <%= radio_button_tag :radius, 1, params[:radius] %>

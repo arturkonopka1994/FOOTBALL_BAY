@@ -3,6 +3,7 @@ class Venue < ApplicationRecord
 	has_many :reviews, dependent: :destroy
 	has_one_attached :photo
 	validates :name, presence: true, uniqueness: true
+  monetize :price_cents
 
 	validates :city, :post_code, :surface, :cost_per_hour, presence: true
 
@@ -12,7 +13,7 @@ class Venue < ApplicationRecord
 	after_validation :geocode, if: :will_save_change_to_city?
 	after_validation :geocode, if: :will_save_change_to_post_code?
 
-	
+
 	def full_address
 		address_line_1 = self.address_line_1
 		address_line_2 = self.address_line_2
