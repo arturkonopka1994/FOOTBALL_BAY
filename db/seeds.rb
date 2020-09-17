@@ -20,35 +20,40 @@ venue_one = Venue.create!(name: "Old Trafford",
     city: 'manchester',
     cost_per_hour: "£6",
     address_line_1: "Sir Matt Busby Way, Old Trafford, Manchester",
-    surface: "Natural")
+    surface: "Natural",
+    price_cents: 6)
 
 venue_two = Venue.create!(name: "Anfield",
     post_code: "L4 0TH",
     city: 'liverpool',
     cost_per_hour: "£5",
     address_line_1: "Anfield Road, Liverpool",
-    surface: "Hybrid")
+    surface: "Hybrid",
+    price_cents: 5)
 
 venue_three = Venue.create!(name: "Stadium of Light",
     post_code: "SR5 1SU",
     city: 'sunderland',
     cost_per_hour: "£3",
     address_line_1: "Stadium of Light, Sunderland",
-    surface: "Artificial")
+    surface: "Artificial",
+    price_cents: 3)
 
 venue_four = Venue.create!(name: "Ewood Park",
     post_code: "BB2 4JF",
     city: 'blackburn',
     cost_per_hour: "£3",
     address_line_1: "Ewood Park",
-    surface: "Hybrid")
+    surface: "Hybrid",
+    price_cents: 3)
 
 venue_five = Venue.create!(name: "Goodison Park",
     post_code: "L20 2BN",
     city: 'liverpool',
     cost_per_hour: "£4",
     address_line_1: "Goodison Road, Walton, Liverpool",
-    surface: "Natural")
+    surface: "Natural",
+    price_cents: 4)
 
 puts "Venues created"
 
