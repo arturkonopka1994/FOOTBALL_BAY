@@ -40,8 +40,8 @@
     <%= raw @qr.as_html %>
   </div>
 
-  <%= form_tag bookings_path do %>
-  <%= hidden_field_tag 'match_id', @match.id %>
-  <%= submit_tag 'Pay', class: 'btn btn-primary' %>
-<% end %>
+  <%= simple_form_for [@match, Booking.new] do |f| %>
+  <%#= hidden_field_tag 'match_id', @match.id %>
+  <%= f.submit 'Pay', class: 'btn btn-primary' %>
+  <% end %>
 </div>
