@@ -34,7 +34,7 @@ end
   end
 
   def spots_left
-    [no_of_players - bookings.count, 0].max
+    [(no_of_players || 0) - bookings.count, 0].max
   end
 
   def spots_taken
