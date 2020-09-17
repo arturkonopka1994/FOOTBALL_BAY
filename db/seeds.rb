@@ -65,7 +65,10 @@ user_two = User.create!(email: "a.morgan@gmail.com",
 
 puts "Users created"
 
-match_one = Match.create!(skill_level: "beginner",
+match_one = Match.create!(
+    title: "Cool Game 1",
+    mobile_number: "+447398786653",
+    skill_level: "beginner",
     no_of_players: 5,
     description: 'I want to have a lovely game of football',
     start_time: "2pm",
@@ -75,6 +78,8 @@ match_one = Match.create!(skill_level: "beginner",
     user_id: user_one.id)
 
 match_two = Match.create!(skill_level: "advanced",
+    title: "Cool Game 2",
+    mobile_number: "+447398786653",
     no_of_players: 7,
     description: 'I want to have a lovely game of football',
     start_time: "7pm",

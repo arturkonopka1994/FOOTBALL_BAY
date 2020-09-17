@@ -1,42 +1,66 @@
 <div class="container justify-content-center">
   <h1 class="text-center"> Your Dashboard</h1>
   <div class="container">
-    <!--<% upcoming_bookings =  current_user.booked_matches.select{ |booking| booking.start_time >= DateTime.now }  %> -->
-    <%= upcoming_bookings %>
+    <h1>Upcoming bookings</h1>
+    <% upcoming_bookings =  current_user.booked_matches.select{ |booking| booking.start_time > DateTime.now }  %>
     <!-- performance wise it's better to have the logic below implemented in the controller, but becuase we don't have a lot of records it's fine to do this in the view-->
     <%# @matches = @matches.select{ |match| match.start_time >= DateTime.now } %>
-    <% current_user.bookings.each do |booking| %>
+    <% upcoming_bookings.each do |booking| %>
       <div class="newcard mb-3">
         <p class="text-center">
           <%= link_to booking_path(booking), method: :delete, data: { confirm: "Are you sure?"} do %>
           <i class="fas fa-trash-alt" style="font-size: 1.5em"></i>
           <% end %>
-          <span class="text-danger"><%= booking.match.title %></span>
-          <%= booking.match.start_time.strftime("%A, %d %b %Y %l:%M%p") %> -
-          <%= booking.match.end_time.strftime("%l:%M%p") %> at
-          <%= booking.match.venue.post_code %>,
-          <%= booking.match.no_of_players %> a side game by <%= booking.match.user.email %>
-          <%= booking.match.description %>
+          <span class="text-danger"><%= booking.title %></span>
+          <%= booking.start_time.strftime("%A, %d %b %Y %l:%M%p") %> -
+          <%= booking.end_time.strftime("%l:%M%p") %> at
+          <%= booking.venue.post_code %>,
+          <%= booking.no_of_players %> a side game by <%= booking.user.email %>
+          <%= booking.description %>
         </p>
       </div>
     <% end %>
   </div>
 
   <div class="container">
-    <!-- performance wise it's better to have the logic below implemented in the controller, but becuase we don't have a lot of records it's fine to do this in the view-->
+    <h1>Current Bookings</h1>
+    <% current_bookings =  current_user.booked_matches.select{ |booking| booking.start_time > DateTime.now && booking.end_time < DateTime.now }  %>
+    <!-- performance wise it's better to have the logic below implemented in the controller, but because we don't have a lot of records it's fine to do this in the view-->
     <%# @matches = @matches.select{ |match| match.start_time >= DateTime.now } %>
-    <% current_user.bookings.each do |booking| %>
+    <% current_bookings.each do |booking| %>
       <div class="newcard mb-3">
         <p class="text-center">
           <%= link_to booking_path(booking), method: :delete, data: { confirm: "Are you sure?"} do %>
           <i class="fas fa-trash-alt" style="font-size: 1.5em"></i>
           <% end %>
-          <span class="text-danger"><%= booking.match.title %></span>
-          <%= booking.match.start_time.strftime("%A, %d %b %Y %l:%M%p") %> -
-          <%= booking.match.end_time.strftime("%l:%M%p") %> at
-          <%= booking.match.venue.post_code %>,
-          <%= booking.match.no_of_players %> a side game by <%= booking.match.user.email %>
-          <%= booking.match.description %>
+          <span class="text-danger"><%= booking.title.nil? ? "No title": booking.match.title %></span>
+          <%= booking.start_time.strftime("%A, %d %b %Y %l:%M%p") %> -
+          <%= booking.end_time.strftime("%l:%M%p") %> at
+          <%= booking.venue.post_code %>,
+          <%= booking.no_of_players %> a side game by <%= booking.user.email %>
+          <%= booking.description %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="container">
+    <h1>Previous Bookings</h1>
+    <% past_bookings =  current_user.booked_matches.select{ |booking| booking.start_time < DateTime.now }  %>
+    <!-- performance wise it's better to have the logic below implemented in the controller, but because we don't have a lot of records it's fine to do this in the view-->
+    <%# @matches = @matches.select{ |match| match.start_time >= DateTime.now } %>
+    <% past_bookings.each do |booking| %>
+      <div class="newcard mb-3">
+        <p class="text-center">
+          <%= link_to booking_path(booking), method: :delete, data: { confirm: "Are you sure?"} do %>
+          <i class="fas fa-trash-alt" style="font-size: 1.5em"></i>
+          <% end %>
+          <span class="text-danger"><%= booking.title %></span>
+          <%= booking.start_time.strftime("%A, %d %b %Y %l:%M%p") %> -
+          <%= booking.end_time.strftime("%l:%M%p") %> at
+          <%= booking.venue.post_code %>,
+          <%= booking.no_of_players %> a side game by <%= booking.user.email %>
+          <%= booking.description %>
         </p>
       </div>
     <% end %>
