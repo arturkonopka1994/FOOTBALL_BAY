@@ -11,6 +11,9 @@ class Match < ApplicationRecord
   validates :start_time, :end_time, presence: true
   validates :skill_level, presence: true
   validates :mobile_number, presence: true
+  valiadtes :no_of_players, presence: true
+  valiadtes :title, presence: true
+  
   validates_format_of :mobile_number, with: /^([+][4][4])[7]\d{9}$/, multiline: true
 
   include PgSearch::Model
