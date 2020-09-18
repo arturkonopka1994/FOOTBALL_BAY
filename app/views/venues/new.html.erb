@@ -1,18 +1,18 @@
-<div class="container login-img white-text text-center">
+<div class="container">
+  <div class="container-forms">
+    <h1>Add a place where games can be hosted</h1>
 
-  <h1>Add a place where games can be hosted</h1>
-
-  <%= simple_form_for(@venue) do |v| %>
-    <%= v.input :name %>
-    <%= v.input :address_line_1 %>
-    <%= v.input :address_line_2 %>
-    <%= v.input :city %>
-    <%= v.input :cost_per_hour %>
-    <%= v.input :post_code %>
-    <%= v.input :surface, collection: ["Grass", "Hybrid", "Synthetic", "2G artificial grass", "3G artificial grass"] %>
-    <%= v.input :floodlit %>
-    <%= v.input :photo, as: :file %>
-    <%= v.button :submit, class: "btn button button-match btn-lg list-inline", style: "width: -webkit-fill-available;" %>
-  <% end %>
-
+    <%= simple_form_for(@venue) do |v| %>
+      <%= v.input :name %>
+      <%= v.input :address_line_1 %>
+      <%= v.input :address_line_2 %>
+      <%= v.input :city %>
+      <%= v.input :cost_per_hour %>
+      <%= v.input :post_code %>
+      <%= v.input :surface, collection: ["Grass", "Hybrid", "Synthetic", "2G artificial grass", "3G artificial grass"] %>
+      <%= v.input :floodlit %>
+      <%= v.input :photo, as: :file %>
+      <%= v.button :submit, class: "btn button button-match btn-lg list-inline", style: "width: -webkit-fill-available;" %>
+    <% end %>
+  </div>
 </div>
