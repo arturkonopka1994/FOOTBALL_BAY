@@ -8,7 +8,8 @@ class Match < ApplicationRecord
   before_validation :valid_venue_time?
 
   validates :description, length: { minimum: 10 }, presence: true
-  validates :start_time, :end_time, :title, :venue, :no_of_players, presence: true
+  validates :title, length: { maximum: 20}, presence: true
+  validates :start_time, :end_time, :venue, :no_of_players, presence: true
   validates :skill_level, presence: true
   validates :mobile_number, presence: true
 

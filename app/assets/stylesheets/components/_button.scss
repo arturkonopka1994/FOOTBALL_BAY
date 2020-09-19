@@ -30,7 +30,7 @@ a:hover {
 
 .button-match {
   height: 40px;
-  width: 30%;
+  width: 100%;
 }
 
 
@@ -58,7 +58,6 @@ a:hover {
   display: inline-block;
   font-size: 16px;
   font-weight: 400;
-  weight: 40px;
 }
 
 .fas {
@@ -71,4 +70,10 @@ a:hover {
   margin-bottom: 4px;
   margin-top: 16px;
   display: block;
+}
+
+.button.delete {
+  color: white;
+  width: 28vw;
+  background-color: #8A0707;
 }
