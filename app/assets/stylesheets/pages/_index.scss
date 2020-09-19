@@ -15,7 +15,6 @@
 }
 
 .title-match {
-  margin-left: 20px;
   padding-top: 20px;
 }
 
@@ -29,4 +28,23 @@
 
 body {
   background-color: white;
+}
+
+h1 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 100px;
+}
+
+h2 {
+  font-family: 'Bebas Neue', cursive;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+#nav_title {
+  position: absolute;
+  padding-left: 55px;
+  padding-top: 13px;
 }
