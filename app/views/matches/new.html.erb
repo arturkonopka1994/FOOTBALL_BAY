@@ -11,8 +11,13 @@
     <% end %>
     <%= m.input :no_of_players, collection: ["10 Players", "14 Players", "22 Players"] %>
     <%= m.input :skill_level, as: :radio_buttons, collection: ["Just for fun", "Try Hard"] %>
-    <%= m.input :start_time, as: :datetime, :minute_step => 15 %>
-    <%= m.input :end_time, as: :datetime, :minute_step => 15 %>
+    <label for="start_date", style="margin-bottom: 0px">Start time</label>
+    <input type="datetime-local" max="2021-06-20T20:06" min="2020-09-20T02:20" step="900" class="form-control" id="start_date" name="match[start_time]">
+    
+    <!--<%= m.input :start_time, as: :datetime, :minute_step => 15, class: "form-control" %>-->
+    <label for="end_date", style="margin-bottom: 0px; margin-top: 8px;">End time</label>
+    <input type="datetime-local" max="2021-06-20T20:06" min="2020-09-20T02:20" step="900" class="form-control" id="end_date" name="match[end_time]">
+    <!--<%= m.input :end_time, as: :datetime, :minute_step => 15 %>-->
     <%= m.input :mobile_number, placeholder: '+447123456789' %>
     <%= m.input :description %>
     <%= m.button :submit, class: "btn button button-match btn-lg list-inline", style: "width: -webkit-fill-available;" %>
