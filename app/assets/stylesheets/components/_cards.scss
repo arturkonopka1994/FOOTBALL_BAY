@@ -37,9 +37,9 @@
 
 .cards_games {
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
-  gap: 32px;
-  justify-content: center;
+  grid-template-columns: auto auto auto auto;
+  justify-content: space-between;
+  padding-left: auto;
 }
 
 .cards_home {
