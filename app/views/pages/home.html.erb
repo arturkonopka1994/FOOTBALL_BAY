@@ -77,7 +77,7 @@
         <% end %>
       </div>
       <div class="card_body">
-        <h3><strong><%= match.title.capitalize %></strong></h3>
+        <h3><strong><%= match.title.upcase %></strong></h3>
         <p> <strong>Postcode</strong> : <%= match.venue.post_code %></p>
         <p> <strong>Starts</strong> : <%= match.start_time.strftime(" %e %a %b  %l:%M %p") %></p>
         <%= link_to 'Check it out', match_path(match), class: "button small" %>
@@ -100,7 +100,7 @@
         <% end %>
       </div>
       <div class="card_body">
-        <h3><strong><%= match.title.capitalize %></strong></h3>
+        <h3><strong><%= match.title.upcase %></strong></h3>
         <p> <strong>Postcode</strong> : <%= match.venue.post_code %></p>
         <p> <strong>Starts</strong> : <%= match.start_time.strftime(" %e %a %b  %l:%M %p") %></p>
         <%= link_to 'Check it out', match_path(match), class: "button small" %>
