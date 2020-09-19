@@ -48,12 +48,29 @@
   gap: 32px;
   justify-content: center;
 }
+.cards_home1 {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  gap: 32px;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
 .cardss {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   background-color: white;
   border-radius: 4px;
   margin-bottom: 16px;
   width: 184px;
+ }
+ .cardss1 {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  background-color: rgb(231, 231, 231);
+  border-radius: 4px;
+  margin-bottom: 16px;
+  width: 220px;
+  padding-bottom: 10px;
+  height: 400px;
  }
 
  .cardss.games {
