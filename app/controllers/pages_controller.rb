@@ -8,6 +8,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @booked_matches = Booking.where(user:current_user)
   end
 
 end
