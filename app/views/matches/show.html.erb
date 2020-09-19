@@ -40,9 +40,4 @@
     <h2>Scan the QR to Contact the Host</h2>
     <%= raw @qr.as_html %>
   </div>
-
-  <%= simple_form_for [@match, Booking.new] do |f| %>
-  <%#= hidden_field_tag 'match_id', @match.id %>
-  <%= f.submit 'Pay', class: 'btn btn-primary' %>
-  <% end %>
 </div>
