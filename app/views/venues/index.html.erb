@@ -12,7 +12,7 @@
           <% end %>
           <div class="">
             <%= link_to venue.name, venue_path(venue) %>
-            <p>Amount: <%= humanized_money_with_symbol(venue.price) %></p>
+            <p style="color: white;">Cost per person : <%= humanized_money_with_symbol(venue.price) %></p>
           </div>
         </div>
       <% end %>
