@@ -18,24 +18,20 @@
     data-mapbox-api-key="<%= ENV['MAPBOX_URL'] %>">
   </div>
 
-  <div class="newcard_matchshow">
-    <p>Address - <%= @match.venue.address_line_1 %></p>
-    <p>Postcode - <%= @match.venue.post_code %></p>
-    <p>Match Start - <%= @match.start_time.strftime(" %e %a %b  %l:%M %p") %></p>
-  </div>
-
-  <div class="d-flex justify-content-around">
+  <div class="d-flex justify-content-between mt-3 mb-5">
     <div>
-      <h2>Match Details:</h2><p><%= @match.description %></p>
+      <h2>Match Details</h2>
       <h3>Players needed = <%= @match.spots_left %>/<%= @match.no_of_players%> <br>
-        <% @match.spots_left.times do %>
-          <%= image_tag('athlete.png', style:"height: 30px") %>
-        <% end %>
-        <% @match.spots_taken.times do %>
-          <%= image_tag('athlete-negative.png', style:"height: 30px") %>
-        <% end %>
+      <% @match.spots_left.times do %>
+        <%= image_tag('athlete.png', style:"height: 30px") %>
+      <% end %>
+      <% @match.spots_taken.times do %>
+        <%= image_tag('athlete-negative.png', style:"height: 30px") %>
+      <% end %>
       </h3>
+      <h3>Match Start - <%= @match.start_time.strftime(" %e %a %b  %l:%M %p") %></h3>
       <h3>Skill level = <%= @match.skill_level %></h3>
+      <p><%= @match.description %></p>
 
       <button id="show" class="button">Contact Host</button>
       <div class="qrcode d-none">
@@ -47,6 +43,8 @@
     <div>
       <h2>Venue Details</h2>
       <h3><%= @match.venue.name %></h3>
+      <h3>Address - <%= @match.venue.address_line_1 %></h3>
+      <h3>Postcode - <%= @match.venue.post_code %></h3>
       <h3>Cost per hour per person <%= @match.venue.cost_per_hour %></h3>
       <h3>surface <%= @match.venue.surface %></h3>
       <h3>floodlit <%= @match.venue.floodlit %></h3>
