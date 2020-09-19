@@ -2,10 +2,11 @@ class Venue < ApplicationRecord
 	has_many :matches, dependent: :destroy
 	has_many :reviews, dependent: :destroy
 	has_one_attached :photo
+	validates :price_cents, presence: true, numericality: { other_than: 0 }
 	validates :name, presence: true, uniqueness: true
   monetize :price_cents
 
-	validates :city, :post_code, :surface, :cost_per_hour, presence: true
+	validates :city, :post_code, :surface, presence: true
 
 	geocoded_by :full_address
 	after_validation :geocode, if: :will_save_change_to_address_line_1?
