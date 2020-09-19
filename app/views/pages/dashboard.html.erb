@@ -31,10 +31,7 @@
   <div class="container">
     <h2>Previous Bookings</h2>
 
-    <% past_bookings =  current_user.booked_matches.select{ |booking| booking.start_time < DateTime.now }  %>
-    <!-- performance wise it's better to have the logic below implemented in the controller, but because we don't have a lot of records it's fine to do this in the view-->
-    <%# @matches = @matches.select{ |match| match.start_time >= DateTime.now } %>
-    <% past_bookings.each do |booking| %>
+    <% @past_bookings.each do |booking| %>
       <div class="newcard dashboard">
           
         <div>
