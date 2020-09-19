@@ -1,13 +1,13 @@
 <div class="container">
   <div class="container-forms">
-    
+
     <%= simple_form_for(@venue) do |v| %>
       <h2>Venue Registration Form</h2>
       <%= v.input :name %>
       <%= v.input :address_line_1 %>
       <%= v.input :address_line_2 %>
       <%= v.input :city %>
-      <%= v.input :price_cents %>
+      <%= v.input :price %>
       <%= v.input :post_code %>
       <%= v.input :surface, collection: ["Grass", "Hybrid", "Synthetic", "2G artificial grass", "3G artificial grass"] %>
       <%= v.input :floodlit %>
@@ -18,5 +18,5 @@
       <%= image_tag('goalkeeper.svg', class: "img-form") %>
     </div>
   </div>
-  
+
 </div>
