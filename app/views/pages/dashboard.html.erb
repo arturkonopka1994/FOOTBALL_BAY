@@ -19,9 +19,8 @@
           <p><%= booking.match.start_time.strftime("%A, %d %b %Y %l:%M%p") %> until <%= booking.match.end_time.strftime("%l:%M%p") %></p>
           <p><%= booking.match.venue.post_code %></p>
           <p><strong><%= booking.match.no_of_players/2 %> a side</strong> game by <%= booking.match.user.email %></p>
-        
+          <%= link_to "Leave a review", "#{venue_path(booking)}#review-input", class: "btn button button-match btn-lg list-inline" %>
           <%= link_to "Cancel", booking_path(booking), method: :delete, data: { confirm: "Are you sure?"}, class: "button delete" %>
-         
         </div>
        
       </div>
@@ -44,9 +43,8 @@
           <p><%= booking.match.start_time.strftime("%A, %d %b %Y %l:%M%p") %> until <%= booking.match.end_time.strftime("%l:%M%p") %></p>
           <p><%= booking.match.venue.post_code %></p>
           <p><%= booking.match.no_of_players %> a side game by <%= booking.match.user.email %></p>
-        
+          <%= link_to "Leave a review", "#{venue_path(booking)}#review-input", class: "btn button button-match btn-lg list-inline" %>
           <%= link_to "Delete", booking_path(booking), method: :delete, data: { confirm: "Are you sure?"}, class: "button delete" %>
-         
         </div>
        
       </div>
