@@ -75,5 +75,12 @@ a:hover {
 .button.delete {
   color: white;
   width: 28vw;
-  background-color: #8A0707;
+  background-color: #ff0202;
+  box-shadow: 2px 2px lightgray;
+}
+
+.button.delete:hover {
+  background-color: #e00000;
+  transition: 0.2s;
+  color: #790b0b;
 }

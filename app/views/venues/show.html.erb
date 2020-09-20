@@ -38,11 +38,14 @@
   
 
   <div>
-    <h2>Reviews</h2>
-    <%= simple_form_for [@venue, @review] do |r| %>
-      <%= r.rich_text_area :content %>
-      <%= r.button :submit %>
-    <% end %>
+    <section id="review-input">
+      <h2>Reviews</h2>
+      <%= simple_form_for [@venue, @review] do |r| %>
+        <%= r.rich_text_area :content %>
+        <%= r.button :submit %>
+      <% end %>
+    </section>
+    
 
     <div>
       <% @venue.reviews.each do |review|  %>

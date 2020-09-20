@@ -13,15 +13,16 @@
           <img src="<%= cl_image_path booking.match.venue.photo.key, height: 250, width: 300, crop: :fill, gravity: :auto %>" alt="venue picture" style="border-radius: 8px;">
         </div>
 
-        <div style="margin-left:100px; margin-right:100px; width: 460px;">
+        <div style="margin-left:48px; margin-right:48px; width: auto;">
           <h3 style="font-family:'Bebas Neue', cursive;"><%= booking.match.title %></h3>
           
           <p><%= booking.match.start_time.strftime("%A, %d %b %Y %l:%M%p") %> until <%= booking.match.end_time.strftime("%l:%M%p") %></p>
           <p><%= booking.match.venue.post_code %></p>
           <p><strong><%= booking.match.no_of_players/2 %> a side</strong> game by <%= booking.match.user.email %></p>
-        
-          <%= link_to "Cancel", booking_path(booking), method: :delete, data: { confirm: "Are you sure?"}, class: "button delete" %>
-         
+          <div class="d-flex flex-row">
+            <%= link_to "Leave a review", "#{venue_path(booking)}#review-input", class: "btn button button-match btn-lg list-inline", style: "margin-right: 16px" %>
+            <%= link_to "Cancel", booking_path(booking), method: :delete, data: { confirm: "Are you sure?"}, class: "button delete" %>
+          </div>
         </div>
        
       </div>
@@ -38,15 +39,16 @@
           <img src="<%= cl_image_path booking.match.venue.photo.key, height: 250, width: 300, crop: :fill, gravity: :auto %>" alt="venue picture" style="border-radius: 8px;">
         </div>
 
-        <div style="margin-left:100px; margin-right:100px; width: 460px;">
+        <div style="margin-left:48px; margin-right:48px; width: auto;">
           <h3 style="font-family:'Bebas Neue', cursive;"><%= booking.match.title %></h3>
           
           <p><%= booking.match.start_time.strftime("%A, %d %b %Y %l:%M%p") %> until <%= booking.match.end_time.strftime("%l:%M%p") %></p>
           <p><%= booking.match.venue.post_code %></p>
           <p><%= booking.match.no_of_players %> a side game by <%= booking.match.user.email %></p>
-        
-          <%= link_to "Delete", booking_path(booking), method: :delete, data: { confirm: "Are you sure?"}, class: "button delete" %>
-         
+          <div class="d-flex flex-row">
+            <%= link_to "Leave a review", "#{venue_path(booking)}#review-input", class: "btn button button-match btn-lg list-inline", style: "margin-right: 16px" %>
+            <%= link_to "Cancel", booking_path(booking), method: :delete, data: { confirm: "Are you sure?"}, class: "button delete" %>
+          </div>
         </div>
        
       </div>
