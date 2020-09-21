@@ -10,12 +10,17 @@
   font-size: 16px;
   font-weight: 400;
   margin-bottom: 16px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20px;
+  
+
 }
 
 .button:hover {
   color: #013D17;
   background-color: #21e278;
   transition: 0.2s;
+  box-shadow: 3px 3px #00000016;
 }
 
 a:hover {
