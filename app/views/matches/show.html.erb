@@ -21,7 +21,8 @@
   <div class="d-flex justify-content-between mt-3 mb-5">
     <div>
       <h2>Match Details</h2>
-      <h3>Players needed = <%= @match.spots_left %>/<%= @match.no_of_players%> <br>
+      <h3>Match Start: <%= @match.start_time.strftime(" %e %a %b  %l:%M %p") %></h3>
+      <h3>Players needed: <br>
       <% @match.spots_left.times do %>
         <%= image_tag('athlete.png', style:"height: 30px") %>
       <% end %>
@@ -29,8 +30,7 @@
         <%= image_tag('athlete-negative.png', style:"height: 30px") %>
       <% end %>
       </h3>
-      <h3>Match Start - <%= @match.start_time.strftime(" %e %a %b  %l:%M %p") %></h3>
-      <h3>Skill level = <%= @match.skill_level %></h3>
+      <h3>Skill level: <%= @match.skill_level %></h3>
       <p><%= @match.description %></p>
 
       <button id="show" class="button">Contact Host</button>
@@ -42,12 +42,17 @@
 
     <div>
       <h2>Venue Details</h2>
-      <h3><%= @match.venue.name %></h3>
-      <h3>Address - <%= @match.venue.address_line_1 %></h3>
-      <h3>Postcode - <%= @match.venue.post_code %></h3>
-      <h3>Cost per hour per person <%= @match.venue.cost_per_hour %></h3>
-      <h3>surface <%= @match.venue.surface %></h3>
-      <h3>floodlit <%= @match.venue.floodlit %></h3>
+      <h3>Name: <%= @match.venue.name.capitalize %></h3>
+      <h3><%= image_tag '005-address', style:" height: 42px" %> <%= @match.venue.address_line_1.capitalize %> <%= @match.venue.post_code.upcase %></h3>
+      <h3>Cost: <%= @match.venue.cost_per_hour %></h3>
+      <h3><%= image_tag '004-pitch', style:"height: 50px" %>: <%= @match.venue.surface %></h3>
+      <h3>Lights: 
+        <% if @match.venue.floodlit? %>
+          <%= image_tag '001-tick', style:"height: 32px" %>
+        <% else %>
+          <%= image_tag '002-remove', style:"height: 32px" %>
+        <% end %>
+      </h3>
     </div>
   </div>
 </div>
