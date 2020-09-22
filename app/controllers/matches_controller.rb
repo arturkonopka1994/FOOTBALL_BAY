@@ -38,6 +38,7 @@ class MatchesController < ApplicationController
       [{
         lat: @venue.latitude,
         lng: @venue.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { venue: @venue })
       }]
   end
 
