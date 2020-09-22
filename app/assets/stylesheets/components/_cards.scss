@@ -37,7 +37,7 @@
 
 .cards_games {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: auto auto auto auto;
   grid-gap: 16px;
   justify-content: space-between;
   padding-left: auto;
@@ -51,11 +51,11 @@
 }
 .cards_home1 {
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
-  gap: 32px;
+  grid-template-columns: auto auto auto;
+  gap: 64px;
   justify-content: center;
-  margin-top: 50px;
-  margin-bottom: 100px;
+  margin-top: 32px;
+  margin-bottom: 32px;
 }
 .cardss {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
