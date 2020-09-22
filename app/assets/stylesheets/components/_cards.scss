@@ -37,7 +37,7 @@
 
 .cards_games {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: auto auto auto auto;
   grid-gap: 16px;
   justify-content: space-between;
   padding-left: auto;
@@ -72,6 +72,27 @@
   width: 220px;
   padding-bottom: 10px;
   height: 400px;
+ }
+ .review-card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  background-color:white;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  width: 900px;
+  padding-bottom: 10px;
+  height: auto;
+  align-items: center;
+ }
+ .review-card1 {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  background-color:white;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-bottom: 16px;
+  width: 900px;
+  padding-bottom: 10px;
+  height: 250px;
+  align-items: center;
  }
 
  .cardss.games {

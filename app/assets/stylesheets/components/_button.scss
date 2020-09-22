@@ -10,12 +10,40 @@
   font-size: 16px;
   font-weight: 400;
   margin-bottom: 16px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20px;
 }
 
 .button:hover {
-  color: #013D17;
-  background-color: #21e278;
+  color: #012910;
+  background-color: #23af62;
   transition: 0.2s;
+  box-shadow: 3px 3px #00000016;
+  color: white;
+}
+
+.button-secondary-home {
+  color:lightgray !important;
+  background-color: rgba(0,0,0,0.1);
+  border: #2BFF8B solid 1px;
+  border-radius: 8px;
+  color: #013D17;
+  padding: 8px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20px;
+}
+
+.button-secondary-home:hover {
+  color: white !important;
+  background-color: rgba(211,211,211, 0.1);
+  transition: 0.2s;
+  box-shadow: 3px 3px #00000016;
 }
 
 a:hover {
@@ -29,7 +57,7 @@ a:hover {
 }
 
 .button-match {
-  height: 40px;
+  // height: 40px;
   width: 100%;
 }
 
@@ -75,5 +103,27 @@ a:hover {
 .button.delete {
   color: white;
   width: 28vw;
-  background-color: #8A0707;
+  background-color: #ff0202;
+}
+.review-form-btn{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  padding: 0 20px;
+  min-width: 160px;
+  height: 52px;
+  font-size: 16px;
+  line-height: 1.2;
+  background-color: #2BFF8B;
+  margin-top: 20px;
+}
+.btn {
+  box-shadow: 2px 2px lightgray;
+}
+
+.button.delete:hover {
+  background-color: #e00000;
+  transition: 0.2s;
+  color: #790b0b;
 }
