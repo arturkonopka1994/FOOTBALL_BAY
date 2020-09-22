@@ -41,7 +41,7 @@
       </div>
       <div class="card_body">
         <div>
-          <h3><strong><%= match.title.capitalize %></strong></h3>
+          <h3><strong><%= match.title.upcase %></strong></h3>
           <p> <strong>Starts</strong> : <%= match.start_time.strftime(" %e %a %b  %l:%M %p") %></p>
         </div>
         <div class="d-flex flex-row-reverse justify-content-between">

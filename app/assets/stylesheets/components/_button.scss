@@ -10,12 +10,15 @@
   font-size: 16px;
   font-weight: 400;
   margin-bottom: 16px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20px;
 }
 
 .button:hover {
   color: #013D17;
   background-color: #21e278;
   transition: 0.2s;
+  box-shadow: 3px 3px #00000016;
 }
 
 a:hover {
@@ -29,8 +32,8 @@ a:hover {
 }
 
 .button-match {
-  height: 40px;
-  width: 30%;
+  // height: 40px;
+  width: 100%;
 }
 
 
@@ -89,4 +92,12 @@ a:hover {
   line-height: 1.2;
   background-color: #2BFF8B;
   margin-top: 20px;
+  background-color: #ff0202;
+  box-shadow: 2px 2px lightgray;
+}
+
+.button.delete:hover {
+  background-color: #e00000;
+  transition: 0.2s;
+  color: #790b0b;
 }
