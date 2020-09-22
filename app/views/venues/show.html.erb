@@ -18,7 +18,7 @@
     data-mapbox-api-key="<%= ENV['MAPBOX_URL'] %>">
   </div>
   
-  <div class="review-card">
+  <div class="review-card" style="margin-top: 16px;">
     <h2>Match Details</h2>
     <h3>Address:</h3>
     <p><%= @venue.address_line_1 %></p>
@@ -37,12 +37,12 @@
   </div>
   
 
-  <div class="review-card1>
+  <div class="review-card1" style="margin-top: 16px">
     <section id="review-input">
       <h2>Reviews</h2>
       <%= simple_form_for [@venue, @review] do |r| %>
         <%= r.rich_text_area :content, placeholder: "Write your review here..." %>
-        <button class="review-form-btn"><%= r.button :submit %></button> <#%= r.button :submit %>
+        <button class="review-form-btn"><%= r.button :submit %></button> <!--<%= r.button :submit %>-->
       <% end %>
     </section>
 
