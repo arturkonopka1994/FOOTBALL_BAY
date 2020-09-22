@@ -15,8 +15,33 @@
 }
 
 .button:hover {
+  color: #012910;
+  background-color: #23af62;
+  transition: 0.2s;
+  box-shadow: 3px 3px #00000016;
+  color: white;
+}
+
+.button-secondary-home {
+  color:lightgray !important;
+  background-color: rgba(0,0,0,0.1);
+  border: #2BFF8B solid 1px;
+  border-radius: 8px;
   color: #013D17;
-  background-color: #21e278;
+  padding: 8px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20px;
+}
+
+.button-secondary-home:hover {
+  color: white !important;
+  background-color: rgba(211,211,211, 0.1);
   transition: 0.2s;
   box-shadow: 3px 3px #00000016;
 }
@@ -78,7 +103,7 @@ a:hover {
 .button.delete {
   color: white;
   width: 28vw;
-  background-color: #8A0707;
+  background-color: #ff0202;
 }
 .review-form-btn{
   display:flex;
