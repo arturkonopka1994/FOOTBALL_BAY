@@ -14,19 +14,21 @@
     <!-- <video loop muted autoplay preload="auto">
       <source src="video.mp4"  type="video/mp4">
     </video> -->
-    <h1 class="home">Welcome to the Football Bay!</h1>
+    <h1 class="home">Welcome to the <span style="color: #2BFF8B">Football Bay</span>!</h1>
     <%= video_tag "video.mp4", loop: :loop, muted: :muted, autoplay: :autoplay, width: '100%' , class: "home_video" %>
   </div>
   <div class="container">
-    <div class="form-search ">
-      <%= form_tag matches_path, method: :get do %>
-        <%= text_field_tag :by_address,
-          params[:by_address],
-          class: "form-control",
-          placeholder: "Postcode or City"
-        %>
-        <p class="text-center white-text margin-top">Radius(km)</p>
-        <ul class="list-inline d-flex justify-content-around white-text">
+    <div class="form-search">
+      <ul class="list-inline d-flex justify-content-between white-text">
+        <li class="list-inline-item">
+          <%= form_tag matches_path, method: :get do %>
+          <%= text_field_tag :by_address,
+            params[:by_address],
+            class: "form-control",
+            placeholder: "Postcode or City", 
+            style: "width: 400px; text-align: center; justify-content: center"
+          %>
+        </li>      
           <li class="list-inline-item">
             <%= radio_button_tag :radius, 1, params[:radius] %>
             <p>1km</p>
@@ -43,13 +45,19 @@
             <%= radio_button_tag :radius,10, params[:radius] %>
             <p>10km</p>
           </li>
-        </ul>
-        <%= submit_tag "Search For The Game", class: "btn button button-match btn-lg list-inline", style: "width: -webkit-fill-available;" %>
-      <% end %>
-      <p>
-        <a href="#instruction" class="btn button button-match btn-lg list-inline", style="width: -webkit-fill-available;">Find out about us</a>
-        <%=  %>
-      </p>
+      </ul>
+      <ul class="list-inline d-flex justify-content-between white-text">
+        <li class="list-inline-item">
+          <%= submit_tag "Search For The Game", class: "btn button button-match btn-lg list-inline", style: "width: 400px;" %>
+          <% end %>
+        </li>
+        <li class="list-inline-item">
+          <p>
+            <a href="#instruction" class="btn button-secondary-home button-match btn-lg list-inline", style="width: 400px;">Find out about us</a>
+            <%=  %>
+          </p>
+        </li>
+      </ul>
     </div>
 
 </div>
