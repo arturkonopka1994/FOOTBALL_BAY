@@ -42,7 +42,7 @@
       <h2>Reviews</h2>
       <%= simple_form_for [@venue, @review] do |r| %>
         <%= r.rich_text_area :content, placeholder: "Write your review here..." %>
-        <button class="review-form-btn"><%= r.button :submit %></button> <!--<%= r.button :submit %>-->
+        <button class="button" style="width: 200px"><%= r.button :submit %></button> <!--<%= r.button :submit %>-->
       <% end %>
     </section>
 
