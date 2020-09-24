@@ -44,14 +44,14 @@
     <div>
       <h2>Venue Details</h2>
       <h3>Name: <%= @match.venue.name.capitalize %></h3>
-      <h3><%= image_tag '005-address', style:" height: 42px" %> <%= @match.venue.address_line_1.capitalize %> <%= @match.venue.post_code.upcase %></h3>
+      <h3><%= image_tag '005-address.png', style:" height: 42px" %> <%= @match.venue.address_line_1.capitalize %> <%= @match.venue.post_code.upcase %></h3>
       <h3>Cost: £<%= @match.venue.price %></h3>
-      <h3><%= image_tag '004-pitch', style:"height: 50px" %>: <%= @match.venue.surface %></h3>
+      <h3><%= image_tag '004-pitch.png', style:"height: 50px" %>: <%= @match.venue.surface %></h3>
       <h3>Lights:
         <% if @match.venue.floodlit? %>
-          <%= image_tag '001-tick', style:"height: 32px" %>
+          <%= image_tag '001-tick.png', style:"height: 32px" %>
         <% else %>
-          <%= image_tag '002-remove', style:"height: 32px" %>
+          <%= image_tag '002-remove.png', style:"height: 32px" %>
         <% end %>
       </h3>
     </div>
