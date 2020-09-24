@@ -19,7 +19,31 @@
   background-color: #23af62;
   transition: 0.2s;
   box-shadow: 3px 3px #00000016;
-  color: white;
+  color: white !important;
+}
+
+.button-secondary {
+  color:black !important;
+  background-color: rgba(255,255,255,0.1);
+  border: #2BFF8B solid 1px;
+  border-radius: 8px;
+  color: #013D17;
+  padding: 8px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20px;
+}
+
+.button-secondary:hover {
+  color: white !important;
+  background-color: #23af62;
+  transition: 0.2s;
+  box-shadow: 3px 3px #00000016;
 }
 
 .button-secondary-home {

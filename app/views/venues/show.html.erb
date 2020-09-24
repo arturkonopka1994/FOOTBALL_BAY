@@ -2,12 +2,12 @@
 <% if @venue.photo.attached? %>
   <div class="banner" style="background-image: url('<%= cl_image_path @venue.photo.key %>');">
     <h1><%= @venue.name.upcase %></h1>   
-    <%= link_to 'Create match', new_match_path(venue_id:@venue.id), class:"button" %>
+    <%= link_to 'Create match', new_match_path(venue_id:@venue.id), class:"button", style: "width: 200px" %>
   </div>
 <% else %>
   <div class="banner" style="background-image: url(<%= image_tag 'under_construction.jpg' %>);">
     <h1><%= @venue.name.upcase %></h1>   
-    <%= link_to 'Create match', new_match_path(venue_id:@venue.id), class:"button" %>
+    <%= link_to 'Create match', new_match_path(venue_id:@venue.id), class: "button", style: "width: 200px" %>
   </div>
 <% end %>
 
@@ -42,7 +42,7 @@
       <h2>Reviews</h2>
       <%= simple_form_for [@venue, @review] do |r| %>
         <%= r.rich_text_area :content, placeholder: "Write your review here..." %>
-        <button class="review-form-btn"><%= r.button :submit %></button> <!--<%= r.button :submit %>-->
+        <button class="button" style="width: 200px"><%= r.button :submit %></button> <!--<%= r.button :submit %>-->
       <% end %>
     </section>
 

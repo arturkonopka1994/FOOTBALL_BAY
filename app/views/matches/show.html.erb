@@ -7,9 +7,7 @@
     <% if @match.title != nil %>
       <h1><%= @match.title.capitalize %></h1>
     <% end %>
-    <% if @match.spots_left > 0 %>
-    <%= link_to 'Book Match', match_bookings_path(@match), method: :post, class: "button booking"  %>
-    <% end %>
+    
   </div>
 
   <div id="map-venueshow"
@@ -21,7 +19,7 @@
   <div class="d-flex justify-content-between mt-3 mb-5">
     <div>
       <h2>Match Details</h2>
-      <h3>Match Start: <%= @match.start_time.strftime(" %e %a %b  %l:%M %p") %></h3>
+      <h3>Time: <%= @match.start_time.strftime(" %e %a %b  %l:%M %p") %></h3>
       <h3>Players needed: <br>
       <% @match.spots_left.times do %>
         <%= image_tag('athlete.png', style:"height: 30px") %>
@@ -32,12 +30,15 @@
       </h3>
       <h3>Skill level: <%= @match.skill_level %></h3>
       <p><%= @match.description %></p>
-
-      <button id="show" class="button">Contact Host</button>
+      <% if @match.spots_left > 0 %>
+        <%= link_to 'Book Match', match_bookings_path(@match), method: :post, class: "button", style: "width: 50%"  %>
+      <% end %>
+      <button id="show" class="button-secondary">Contact Host</button>
       <div class="qrcode d-none">
         <h2>Scan the QR to Contact the Host</h2>
         <%= raw @qr.as_html %>
       </div>
+      
     </div>
 
     <div>
