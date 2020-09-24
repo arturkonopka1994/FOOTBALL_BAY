@@ -1,28 +1,24 @@
-<div class="container dashboard_show">
-  <div class="row py-4">
-    <div class="col-md-3"></div>
-    <div class="col">
-      <h1 class="show_match"> Booking confirmation<small></small></h1>
+<div class="row py-auto" style="min-height: calc(100vh - 25vh);">
+    <div class="col-md-2"></div>
+    <div class="col text-center">
+      <h1 class="show_match text-center"> Booking confirmation<small></small></h1>
       <ul class="list-unstyled">
-
-      <% name_of_user = @booking.match.user.email.partition("@").first %>
-      <div class="newcard dashboard">
-
-        <div>
-          <img src="<%= cl_image_path @booking.match.venue.photo.key, height: 250, width: 300, crop: :fill, gravity: :auto %>" alt="venue picture" style="border-top-left-radius: 8px; border-bottom-left-radius: 8px;">
+        <% name_of_user = @booking.match.user.email.partition("@").first %>
+        <div class="card-long-vertical text-justify">
+          <div>
+            <img src="<%= cl_image_path @booking.match.venue.photo.key, height: 250, width: 300, crop: :fill, gravity: :auto %>" alt="venue picture" style="border-top-left-radius: 8px; border-bottom-left-radius: 8px;">
+          </div>
+          <div style="margin-left:48px; margin-right:48px; width: 500px; ">
+            <h3 style="font-family:'Bebas Neue', cursive;"><%= @booking.match.title %></h3>
+            <span class="badge badge-primary match-confirmation"><%= @booking.state %></span>
+            <p><%= @booking.match.start_time.strftime("%A, %d %b %Y %l:%M%p") %> until <%= @booking.match.end_time.strftime("%l:%M%p") %></p>
+            <p><%= @booking.match.venue.post_code %></p>
+            <p><strong><%= @booking.match.no_of_players/2 %> a side</strong> game by <%= name_of_user %></p>
+          </div>
+          <li class="price_booking_show"><strong>Total</strong> <%= humanized_money_with_symbol @booking.match.venue.price %></li>
         </div>
-
-        <div style="margin-left:48px; margin-right:48px; width: auto;">
-          <h3 style="font-family:'Bebas Neue', cursive;"><%= @booking.match.title %></h3>
-          <span class="badge badge-primary match-confirmation"><%= @booking.state %></span>
-
-          <p><%= @booking.match.start_time.strftime("%A, %d %b %Y %l:%M%p") %> until <%= @booking.match.end_time.strftime("%l:%M%p") %></p>
-          <p><%= @booking.match.venue.post_code %></p>
-          <p><strong><%= @booking.match.no_of_players/2 %> a side</strong> game by <%= name_of_user %></p>
-        </div>
-        <li class="price_booking_show"><strong>Total</strong> <%= humanized_money_with_symbol @booking.match.venue.price %></li>
-      </div>
       </ul>
     </div>
+    <div class="col-md-1"></div>
   </div>
 </div>
