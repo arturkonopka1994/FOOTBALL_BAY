@@ -1,12 +1,12 @@
+<div class="d-flex flex-row-reverse pt-3 pb-0 mb-0 pr-3">
+  <%= link_to 'Add a Venue', new_venue_path, class: "btn button button-match btn-lg list-inline", style: "width: 200px" %>
+</div>
+
+<div class="container title-match text-center mt-0 pt-0">
+  <h1 class="text-center">Available Football Venues</h1> 
+</div>
+
 <div>
-
-
-
-
-  <div class="container title-match text-center">
-    <h1 class="text-center">Available Football Venues</h1>
-    <%= link_to 'Add a Venue', new_venue_path, class: "btn button button-match btn-lg list-inline", style: "width: 200px" %>
-  </div>
 
   <div class="my-container">
     <div class="cards">
@@ -29,7 +29,7 @@
     </div>
 
     <div id="map"
-        style="width: 600px; height: 100vh;"
+        style="width: 600px; height: 100vh; border-radius: 8px"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_URL'] %>">
     </div>

@@ -1,4 +1,4 @@
-<div class="container justify-content-center">
+<div class="container justify-content-center" style="min-height: calc(100vh - 22vh);">
 
   <h1 class="text-center"> Your Dashboard</h1>
 
@@ -13,7 +13,7 @@
           <img src="<%= cl_image_path booking.match.venue.photo.key, height: 250, width: 300, crop: :fill, gravity: :auto %>" alt="venue picture" style="border-top-left-radius: 8px; border-bottom-left-radius: 8px;">
         </div>
 
-        <div style="margin-left:48px; margin-right:48px; width: auto;">
+        <div style="margin-left:48px; margin-right:48px; width: 500px; padding-top: 12px">
           <h3 style="font-family:'Bebas Neue', cursive;"><%= booking.match.title %></h3>
 
           <p><%= booking.match.start_time.strftime("%A, %d %b %Y %l:%M%p") %> until <%= booking.match.end_time.strftime("%l:%M%p") %></p>

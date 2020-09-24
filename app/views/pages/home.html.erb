@@ -14,52 +14,56 @@
     <!-- <video loop muted autoplay preload="auto">
       <source src="video.mp4"  type="video/mp4">
     </video> -->
+    <div class="white-text" style="position: absolute; top: 16px; right:32px;">
+      <p>
+        <a href="#instruction" class="btn button-secondary-home button-match btn-lg list-inline", style="width: 400px;">Find out about us</a>
+      </p>
+    </div>
     <h1 class="home">Welcome to the <span style="color: #2BFF8B">Football Bay</span>!</h1>
     <%= video_tag "video.mp4", loop: :loop, muted: :muted, autoplay: :autoplay, width: '100%' , class: "home_video" %>
   </div>
   <div class="container">
     <div class="form-search">
-      <ul class="list-inline d-flex justify-content-between white-text">
-        <li class="list-inline-item">
+      <ul class="list-inline d-flex justify-content-center white-text">
+        <li class="list-inline-item" style="margin-right: 100px">
           <%= form_tag matches_path, method: :get do %>
-          <%= text_field_tag :by_address,
-            params[:by_address],
-            class: "form-control",
-            placeholder: "Postcode or City", 
-            style: "width: 400px; text-align: center; justify-content: center"
-          %>
-        </li>      
-          <li class="list-inline-item">
-            <%= radio_button_tag :radius, 1, params[:radius] %>
-            <p>1km</p>
-          </li>
-          <li class="list-inline-item">
-            <%= radio_button_tag :radius, 3, params[:radius] %>
-            <p>3km</p>
-          </li>
-          <li class="list-inline-item">
-            <%= radio_button_tag :radius,5, params[:radius] %>
-            <p>5km</p>
-          </li>
-          <li class="list-inline-item">
-            <%= radio_button_tag :radius,10, params[:radius] %>
-            <p>10km</p>
-          </li>
-      </ul>
-      <ul class="list-inline d-flex justify-content-between white-text">
+            <%= text_field_tag :by_address,
+              params[:by_address],
+              class: "form-control",
+              placeholder: "Postcode or City", 
+              style: "width: 400px; height: 46px; border-radius: 8px; text-align: center; justify-content: center"
+            %>
+        </li>
         <li class="list-inline-item">
           <%= submit_tag "Search For The Game", class: "btn button button-match btn-lg list-inline", style: "width: 400px;" %>
           <% end %>
+        </li> 
+      </ul>
+      <ul class="list-inline d-flex justify-content-around white-text">
+        <li class="list-inline-item">
+          <%=  %>
+        </li>
+      </ul>
+      <ul class="list-inline d-flex justify-content-around white-text">
+        <li class="list-inline-item">
+          <%= radio_button_tag :radius, 1, params[:radius] %>
+          <p>1km</p>
         </li>
         <li class="list-inline-item">
-          <p>
-            <a href="#instruction" class="btn button-secondary-home button-match btn-lg list-inline", style="width: 400px;">Find out about us</a>
-            <%=  %>
-          </p>
+          <%= radio_button_tag :radius, 3, params[:radius] %>
+          <p>3km</p>
+        </li>
+        <li class="list-inline-item">
+          <%= radio_button_tag :radius,5, params[:radius] %>
+          <p>5km</p>
+        </li>
+        <li class="list-inline-item">
+          <%= radio_button_tag :radius,10, params[:radius] %>
+          <p>10km</p>
         </li>
       </ul>
     </div>
-
+  </div>
 </div>
   <section id="instruction">
     <div><h1>ABOUT US</h1>
