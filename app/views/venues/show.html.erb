@@ -13,36 +13,43 @@
 
 <div class="container">
   <div id="map-venueshow"
-    style="width: 58vw; height: 600px;"
+    style="width: 930px; height: 600px; margin: 16px auto;"
     data-markers="<%= @marker.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_URL'] %>">
   </div>
   
-  <div class="review-card" style="margin-top: 16px;">
+  <div class="review-card" style="margin: 16px auto;">
     <h2>Venue Details</h2>
-    <h3>Address:</h3>
-    <p><%= @venue.address_line_1 %></p>
-    <h3>City:</h3>
-    <p><%= @venue.city.capitalize %></p>
-    <h3>Post Code:</h3>
-    <p><%= @venue.post_code %></p>
-    <h3>Surface:</h3>
-    <p><%= @venue.surface %></p>
-    <h3>Lights:</h3>
-    <% if @venue.floodlit %>
-      <p>Yes</p>
-    <% else %>
-      <p>No</p>
-    <% end %>
+    <div class="d-flex justify-content-between">
+    <div class="">
+        <h3>Address:</h3>
+        <p><%= @venue.address_line_1 %></p>
+        <h3>City:</h3>
+        <p><%= @venue.city.capitalize %></p>
+        <h3>Post Code:</h3>
+        <p><%= @venue.post_code %></p>
+      </div>
+      <div style="width: 400px">
+        <h3>Surface:</h3>
+        <p><%= @venue.surface %></p>
+        <h3>Lights:</h3>
+        <% if @venue.floodlit %>
+          <p>Yes</p>
+        <% else %>
+          <p>No</p>
+        <% end %>
+      </div>
+    </div>
   </div>
   
 
-  <div class="review-card1" style="margin-top: 16px">
+
+  <div class="review-card" style="margin: 16px auto">
     <section id="review-input">
       <h2>Reviews</h2>
       <%= simple_form_for [@venue, @review] do |r| %>
         <%= r.rich_text_area :content, placeholder: "Write your review here..." %>
-        <button class="review-form-btn"><%= r.button :submit %></button> <!--<%= r.button :submit %>-->
+        <%= r.button :submit, class: "review-form-btn" %>
       <% end %>
     </section>
 
