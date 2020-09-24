@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
     @match = Match.find(params[:match_id])
     @booking = Booking.new
     @booking.match = @match
-    @booking.state = 'pending'
+    @booking.state = 'confirmed'
     @booking.user = current_user
     if @booking.save! && @match.spots_available?
       session = Stripe::Checkout::Session.create(
@@ -48,7 +48,7 @@ class BookingsController < ApplicationController
 
   private
 
-  def can_cancel?(booking)    
+  def can_cancel?(booking)
     ((booking.match.start_time.to_datetime - DateTime.current)*24*60).to_i > 1440
   end
 

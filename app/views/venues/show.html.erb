@@ -2,12 +2,12 @@
 <% if @venue.photo.attached? %>
   <div class="banner" style="background-image: url('<%= cl_image_path @venue.photo.key %>');">
     <h1><%= @venue.name.upcase %></h1>   
-    <%= link_to 'Create match', new_match_path(venue_id:@venue.id), class:"button" %>
+    <%= link_to 'Create match', new_match_path(venue_id:@venue.id), class:"button", style: "width: 200px" %>
   </div>
 <% else %>
   <div class="banner" style="background-image: url(<%= image_tag 'under_construction.jpg' %>);">
     <h1><%= @venue.name.upcase %></h1>   
-    <%= link_to 'Create match', new_match_path(venue_id:@venue.id), class:"button" %>
+    <%= link_to 'Create match', new_match_path(venue_id:@venue.id), class: "button", style: "width: 200px" %>
   </div>
 <% end %>
 

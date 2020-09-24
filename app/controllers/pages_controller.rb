@@ -9,10 +9,6 @@ class PagesController < ApplicationController
 
   def dashboard
     @booked_matches = Booking.where(user:current_user).select{ |booking| booking.match.start_time > DateTime.now }
-    
     @past_bookings = Booking.where(user:current_user).select{ |booking| booking.match.start_time < DateTime.now }
-    
-    
   end
-
 end
