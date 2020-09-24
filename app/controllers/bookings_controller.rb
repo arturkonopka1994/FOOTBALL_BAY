@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
     @match = Match.find(params[:match_id])
     @booking = Booking.new
     @booking.match = @match
-    @booking.state = 'pending'
+    @booking.state = 'confirmed'
     @booking.user = current_user
     if @booking.save! && @match.spots_available?
       session = Stripe::Checkout::Session.create(
@@ -37,7 +37,19 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking = Booking.find(params[:id])
-    @booking.destroy
-    redirect_to dashboard_path
+    if can_cancel?(@booking)
+      @booking.destroy
+      redirect_to dashboard_path
+    else
+      flash[:notice] = "Can't Cancel as Less Than 24 Hours Before The Game"
+      redirect_to dashboard_path
+    end
   end
+
+  private
+
+  def can_cancel?(booking)
+    ((booking.match.start_time.to_datetime - DateTime.current)*24*60).to_i > 1440
+  end
+
 end

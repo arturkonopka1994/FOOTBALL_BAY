@@ -1,21 +1,29 @@
 <div class="container">
 
-  <h1>New Match</h1>
-
-  <%= simple_form_for @match do |m| %>
-  <%= m.input :title, placeholder: "Friendly game" %>
-  <% if @venue %>
-    <%= m.association :venue, selected: "#{@venue.id}" %>
-  <% else %>
-    <%= m.association :venue %>
-  <% end %>
-  <%= m.input :no_of_players, collection: ["10 Players", "14 Players", "22 Players"] %>
-  <%= m.input :skill_level, as: :radio_buttons, collection: ["Just for fun", "Try Hard"] %>
-  <%= m.input :start_time, as: :datetime, :minute_step => 15 %>
-  <%= m.input :end_time, as: :datetime, :minute_step => 15 %>
-  <%= m.input :mobile_number, placeholder: '+447123456789' %>
-  <%= m.input :description %>
-  <%= m.button :submit %>
-  <% end %>
-
+  <div class="container-forms">
+    <%= simple_form_for @match do |m| %>
+    <h2>HOST THE MATCH</h2>
+    <%= m.input :title, placeholder: "Friendly game" %>
+    <% if @venue %>
+      <%= m.association :venue, selected: "#{@venue.id}" %>
+    <% else %>
+      <%= m.association :venue %>
+    <% end %>
+    <%= m.input :no_of_players, collection: ["10 Players", "14 Players", "22 Players"] %>
+    <%= m.input :skill_level, as: :radio_buttons, collection: ["Just for fun", "Try Hard"] %>
+    <label for="start_date", style="margin-bottom: 0px">Start time</label>
+    <input type="datetime-local" max="2021-06-20T20:06" min="2020-09-20T02:20" step="900" class="form-control" id="start_date" name="match[start_time]">
+    
+    <!--<%= m.input :start_time, as: :datetime, :minute_step => 15, class: "form-control" %>-->
+    <label for="end_date", style="margin-bottom: 0px; margin-top: 8px;">End time</label>
+    <input type="datetime-local" max="2021-06-20T20:06" min="2020-09-20T02:20" step="900" class="form-control" id="end_date" name="match[end_time]">
+    <!--<%= m.input :end_time, as: :datetime, :minute_step => 15 %>-->
+    <%= m.input :mobile_number, placeholder: '+447123456789' %>
+    <%= m.input :description %>
+    <%= m.button :submit, class: "btn button button-match btn-lg list-inline", style: "width: -webkit-fill-available;" %>
+    <% end %>
+    <div class="container-forms-right">
+      <%= image_tag('match_day.svg', class: "img-form") %>
+    </div>
+  </div>
 </div>

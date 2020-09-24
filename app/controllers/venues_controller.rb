@@ -17,7 +17,7 @@ class VenuesController < ApplicationController
     @venue = Venue.find(params[:id])
     @review = Review.new
     @venues = Venue.geocoded
-    @marker = 
+    @marker =
       [{
         lat: @venue.latitude,
         lng: @venue.longitude,
@@ -35,7 +35,7 @@ class VenuesController < ApplicationController
       redirect_to venues_path
     else
       render 'new'
-    end  
+    end
   end
 
   def edit
@@ -51,7 +51,7 @@ class VenuesController < ApplicationController
       render 'edit'
     end
   end
-  
+
   def destroy
     @venue = venue.find(params[:id])
     @venue.destroy
@@ -61,6 +61,6 @@ class VenuesController < ApplicationController
   private
 
   def strong
-    params.require(:venue).permit(:address_line_1, :address_line_2, :city, :post_code, :cost_per_hour, :name, :surface, :floodlit, :photo)
+    params.require(:venue).permit(:address_line_1, :address_line_2, :city, :post_code, :cost_per_hour, :name, :surface, :floodlit, :photo, :price)
   end
 end

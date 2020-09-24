@@ -1,70 +1,61 @@
-<div class="container justify-content-center">
+<div class="container justify-content-center" style="min-height: calc(100vh - 22vh);">
+
   <h1 class="text-center"> Your Dashboard</h1>
+
   <div class="container">
-    <h1>Upcoming bookings</h1>
-    <% upcoming_bookings =  current_user.booked_matches.select{ |booking| booking.start_time > DateTime.now }  %>
-    <!-- performance wise it's better to have the logic below implemented in the controller, but becuase we don't have a lot of records it's fine to do this in the view-->
-    <%# @matches = @matches.select{ |match| match.start_time >= DateTime.now } %>
-    <% upcoming_bookings.each do |booking| %>
-      <div class="newcard mb-3">
-        <p class="text-center">
-          <%= link_to booking_path(booking), method: :delete, data: { confirm: "Are you sure?"} do %>
-          <i class="fas fa-trash-alt" style="font-size: 1.5em"></i>
-          <% end %>
-          <span class="text-danger"><%= booking.title %></span>
-          <%= booking.start_time.strftime("%A, %d %b %Y %l:%M%p") %> -
-          <%= booking.end_time.strftime("%l:%M%p") %> at
-          <%= booking.venue.post_code %>,
-          <%= booking.no_of_players %> a side game by <%= booking.user.email %>
-          <%= booking.description %>
-        </p>
+    <h2>Upcoming bookings</h2>
+
+    <% @booked_matches.each do |booking| %>
+      <% name_of_user = booking.match.user.email.partition("@").first %>
+      <div class="newcard dashboard">
+
+        <div>
+          <img src="<%= cl_image_path booking.match.venue.photo.key, height: 250, width: 300, crop: :fill, gravity: :auto %>" alt="venue picture" style="border-top-left-radius: 8px; border-bottom-left-radius: 8px;">
+        </div>
+
+        <div style="margin-left:48px; margin-right:48px; width: 500px; padding-top: 12px">
+          <h3 style="font-family:'Bebas Neue', cursive;"><%= booking.match.title %></h3>
+
+          <p><%= booking.match.start_time.strftime("%A, %d %b %Y %l:%M%p") %> until <%= booking.match.end_time.strftime("%l:%M%p") %></p>
+          <p><%= booking.match.venue.post_code %></p>
+          <p><strong><%= booking.match.no_of_players/2 %> a side</strong> game by <%= name_of_user %></p>
+          <div class="d-flex flex-row">
+            <%= link_to "Booking details", booking_path(booking), class: "btn button button-match btn-lg list-inline", style: "margin-right: 16px" %>
+            <%= link_to "Cancel", booking_path(booking), method: :delete, data: { confirm: "Are you sure?"}, class: "button delete" %>
+          </div>
+        </div>
+
       </div>
     <% end %>
   </div>
 
   <div class="container">
-    <h1>Current Bookings</h1>
-    <% current_bookings =  current_user.booked_matches.select{ |booking| booking.start_time > DateTime.now && booking.end_time < DateTime.now }  %>
-    <!-- performance wise it's better to have the logic below implemented in the controller, but because we don't have a lot of records it's fine to do this in the view-->
-    <%# @matches = @matches.select{ |match| match.start_time >= DateTime.now } %>
-    <% current_bookings.each do |booking| %>
-      <div class="newcard mb-3">
-        <p class="text-center">
-          <%= link_to booking_path(booking), method: :delete, data: { confirm: "Are you sure?"} do %>
-          <i class="fas fa-trash-alt" style="font-size: 1.5em"></i>
-          <% end %>
-          <span class="text-danger"><%= booking.title.nil? ? "No title": booking.match.title %></span>
-          <%= booking.start_time.strftime("%A, %d %b %Y %l:%M%p") %> -
-          <%= booking.end_time.strftime("%l:%M%p") %> at
-          <%= booking.venue.post_code %>,
-          <%= booking.no_of_players %> a side game by <%= booking.user.email %>
-          <%= booking.description %>
-        </p>
+    <h2>Previous Bookings</h2>
+
+    <% @past_bookings.each do |booking| %>
+      <div class="newcard dashboard">
+        <% name_of_user = booking.match.user.email.partition("@").first %>
+        <div>
+          <img src="<%= cl_image_path booking.match.venue.photo.key, height: 250, width: 300, crop: :fill, gravity: :auto %>" alt="venue picture" style="border-top-left-radius: 8px; border-bottom-left-radius: 8px;">
+        </div>
+
+        <div style="margin-left:48px; margin-right:48px; width: auto;">
+          <h3 style="font-family:'Bebas Neue', cursive;"><%= booking.match.title %></h3>
+
+          <p><%= booking.match.start_time.strftime("%A, %d %b %Y %l:%M%p") %> until <%= booking.match.end_time.strftime("%l:%M%p") %></p>
+          <p><%= booking.match.venue.post_code %></p>
+          <p><strong><%= booking.match.no_of_players/2 %> a side game</strong> by <%= name_of_user %></p>
+          <div class="d-flex flex-row">
+            <%= link_to "Leave a review", "#{venue_path(booking)}#review-input", class: "btn button button-match btn-lg list-inline", style: "margin-right: 16px" %>
+            <%= link_to "Booking details", booking_path(booking), class: "btn button button-match btn-lg list-inline", style: "margin-right: 16px" %>
+            <%= link_to "Cancel", booking_path(booking), method: :delete, data: { confirm: "Are you sure?"}, class: "button delete" %>
+          </div>
+        </div>
+
       </div>
     <% end %>
   </div>
-  
-  <div class="container">
-    <h1>Previous Bookings</h1>
-    <% past_bookings =  current_user.booked_matches.select{ |booking| booking.start_time < DateTime.now }  %>
-    <!-- performance wise it's better to have the logic below implemented in the controller, but because we don't have a lot of records it's fine to do this in the view-->
-    <%# @matches = @matches.select{ |match| match.start_time >= DateTime.now } %>
-    <% past_bookings.each do |booking| %>
-      <div class="newcard mb-3">
-        <p class="text-center">
-          <%= link_to booking_path(booking), method: :delete, data: { confirm: "Are you sure?"} do %>
-          <i class="fas fa-trash-alt" style="font-size: 1.5em"></i>
-          <% end %>
-          <span class="text-danger"><%= booking.title %></span>
-          <%= booking.start_time.strftime("%A, %d %b %Y %l:%M%p") %> -
-          <%= booking.end_time.strftime("%l:%M%p") %> at
-          <%= booking.venue.post_code %>,
-          <%= booking.no_of_players %> a side game by <%= booking.user.email %>
-          <%= booking.description %>
-        </p>
-      </div>
-    <% end %>
-  </div>
+
 </div>
 
 

@@ -1,7 +1,22 @@
 .container-forms {
     display: grid;
-    padding-left: 10%;
-    padding-right: 50%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row: 1fr;
+    grid-gap: 36px;
+    padding-top: 16px;
+    padding-left: 16px;
     border-radius: 16px;
-    background-image: linear-gradient(to right, #e9f50e, #47b8b0)
+    background-image: linear-gradient(to right, #e9f50e, #47b8b0);
+    font-family: 'Poppins', sans-serif;
+    font-weight: lighter;
+}
+
+.container-forms-right {
+    padding-right: 16px;
+    display: flex;
+}
+
+.img-form {
+    max-width: 100%;
+    z-index: 1;
 }

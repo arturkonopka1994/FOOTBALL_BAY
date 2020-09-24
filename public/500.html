@@ -4,63 +4,86 @@
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
+    body {
+    background: #000;
     margin: 0;
-  }
-
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
-
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
-
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+    }
   </style>
 </head>
 
-<body class="rails-default-error-page">
+<body>
   <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
-  </div>
+  <script>
+    var canvas = document.body.appendChild( document.createElement( 'canvas' ) ),
+        context = canvas.getContext( '2d' );
+    context.globalCompositeOperation = 'lighter';
+    canvas.width = 1900;
+    canvas.height = 1200;
+    draw();
+
+    var textStrip = ["500 There is something what should not be here"];
+
+    var stripCount = 60, stripX = new Array(), stripY = new Array(), dY = new Array(), stripFontSize = new Array();
+
+    for (var i = 0; i < stripCount; i++) {
+        stripX[i] = Math.floor(Math.random()*1265);
+        stripY[i] = -100;
+        dY[i] = Math.floor(Math.random()*7)+3;
+        stripFontSize[i] = Math.floor(Math.random()*16)+8;
+    }
+
+    var theColors = ['#cefbe4', '#81ec72', '#5cd646', '#54d13c', '#4ccc32', '#43c728'];
+
+    var elem, context, timer;
+
+    function drawStrip(x, y) {
+        for (var k = 0; k <= 20; k++) {
+            var randChar = textStrip[Math.floor(Math.random()*textStrip.length)];
+            if (context.fillText) {
+                switch (k) {
+                case 0:
+                    context.fillStyle = theColors[0]; break;
+                case 1:
+                    context.fillStyle = theColors[1]; break;
+                case 3:
+                    context.fillStyle = theColors[2]; break;
+                case 7:
+                    context.fillStyle = theColors[3]; break;
+                case 13:
+                    context.fillStyle = theColors[4]; break;
+                case 17:
+                    context.fillStyle = theColors[5]; break;
+                }
+                context.fillText(randChar, x, y);
+            }
+            y -= stripFontSize[k];
+        }
+    }
+
+    function draw() {
+        // clear the canvas and set the properties
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.shadowOffsetX = context.shadowOffsetY = 0;
+        context.shadowBlur = 8;
+        context.shadowColor = '#94f475';
+        
+        for (var j = 0; j < stripCount; j++) {
+            context.font = stripFontSize[j]+'px MatrixCode';
+            context.textBaseline = 'top';
+            context.textAlign = 'center';
+            
+            if (stripY[j] > 1358) {
+                stripX[j] = Math.floor(Math.random()*canvas.width);
+                stripY[j] = -100;
+                dY[j] = Math.floor(Math.random()*7)+3;
+                stripFontSize[j] = Math.floor(Math.random()*16)+8;
+                drawStrip(stripX[j], stripY[j]);
+            } else drawStrip(stripX[j], stripY[j]);
+            
+            stripY[j] += dY[j];
+        }
+      setTimeout(draw, 10);
+    }
+   </script>
 </body>
 </html>
