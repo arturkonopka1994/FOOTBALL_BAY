@@ -237,7 +237,7 @@ match_two = Match.create!(
     user_id: user_two.id)
 
 match_three = Match.create!(
-    title: "Competative Game",
+    title: "Competitive Game",
     mobile_number: "+447398786653",
     skill_level: "Try Hard",
     no_of_players: "10 Players",
