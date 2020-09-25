@@ -23,14 +23,18 @@
         <h5><%= image_tag '005-address.png', style:" height: 42px" %><%= @venue.post_code %></h5>
       </div>
       <div style="width: 400px">
-        <h3>Surface:</h3>
-        <h3><%= image_tag '004-pitch.png', style:"height: 50px" %>: <%= @venue.surface %></h3>
-        <h3>Lights:</h3>
-        <% if @venue.floodlit %>
-          <%= image_tag '001-tick.png', style:"height: 32px" %>
-        <% else %>
-          <%= image_tag '002-remove.png', style:"height: 32px" %>
-        <% end %>
+        <h3>Surface: </h3> 
+        <h5><%= @venue.surface %> <%= image_tag '004-pitch.png', style:"height: 50px" %></h5>
+        <h3>
+          Lights:
+        </h3>
+        <h5>
+          <% if @venue.floodlit %>
+            <h5>Yes <%= image_tag '001-tick.png', style:"height: 32px" %></h5>
+          <% else %>
+            <h5>No <%= image_tag '002-remove.png', style:"height: 32px" %></h5>
+          <% end %>
+        </h5>
       </div>
     </div>
   </div>
@@ -50,7 +54,7 @@
       <h2>Reviews</h2>
       <%= simple_form_for [@venue, @review] do |r| %>
         <%= r.rich_text_area :content, placeholder: "Write your review here..." %>
-        <%= r.button :submit, class: "review-form-btn" %>
+        <%= r.button :submit, class: "button", style: "margin-top: 8px; margin-bottom: 0px" %>
       <% end %>
     </section>
 

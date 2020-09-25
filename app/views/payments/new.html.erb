@@ -1,9 +1,30 @@
-<div class="container">
-  <div class="row py-4">
+<div class="container" style="min-height: calc(100vh - 22vh);">
+  <div class="row py-4" style="padding-left: 12.5%">
     <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Purchase of <strong><%= @booking.match.venue.name %></strong> for <strong><%= humanized_money_with_symbol @booking.match.venue.price %></strong></p>
-      <button id="pay" class="button" style="width: 100px;">Pay</button>
+      <h1 class="text-center">Checkout summary</h1>
+      <div class="newcard dashboard", style="margin-top: 10%">
+        <% name_of_user = @booking.match.user.email.partition("@").first %>
+        <div>
+          <img src="<%= cl_image_path @booking.match.venue.photo.key, height: 250, width: 300, crop: :fill, gravity: :auto %>" alt="venue picture" style="border-top-left-radius: 8px; border-bottom-left-radius: 8px;">
+        </div>
+
+        <div style="margin-left:48px; margin-right:48px; width: 500px; padding-top: 12px">
+          <h3 style="font-family:'Bebas Neue', cursive;"><%= @booking.match.title %></h3>
+
+          <p><%= @booking.match.start_time.strftime("%A, %d %b %Y %l:%M%p") %> until <%= @booking.match.end_time.strftime("%l:%M%p") %></p>
+          <p><%= @booking.match.venue.post_code %></p>
+          <div  class="d-flex justify-content-between">
+            <p><strong><%= @booking.match.no_of_players/2 %> a side</strong> game by <%= name_of_user %></p>
+            <p><strong>Total</strong> <%= humanized_money_with_symbol @booking.match.venue.price %></p>
+          </div>
+          <div class="d-flex flex-row">
+            <button id="pay" class="btn button button-match btn-lg list-inline mr-5" >Pay</button>
+            <%= link_to "Back", match_path(@booking.match),  class: "button delete"%>
+          </div>
+        </div>
+
+      </div>
+      
       <script src="https://js.stripe.com/v3/"></script>
       <script>
         const paymentButton = document.getElementById('pay');
