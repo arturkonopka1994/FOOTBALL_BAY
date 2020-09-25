@@ -14,7 +14,6 @@
         </div>
 
         <div style="margin-left:48px; margin-right:48px; width: 500px; padding-top: 12px">
-          
           <h3 style="font-family:'Bebas Neue', cursive;"><%= booking.match.title %></h3>
 
           <p><%= booking.match.start_time.strftime("%A, %d %b %Y %l:%M%p") %> until <%= booking.match.end_time.strftime("%l:%M%p") %></p>
@@ -22,7 +21,6 @@
           <div  class="d-flex justify-content-between">
             <p><strong><%= booking.match.no_of_players/2 %> a side</strong> game by <%= name_of_user %></p>
             <p><strong>Total</strong> <%= humanized_money_with_symbol booking.match.venue.price %></p>
-            
           </div>
           <div class="d-flex flex-row">
             <%= link_to "Game details", match_path(booking.match), class: "btn button button-match btn-lg list-inline", style: "margin-right: 16px" %>
