@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container mt-5">
 
-  <div class="container-forms">
+  <div class="container-forms", style="padding-left: 24px">
     <%= simple_form_for @match do |m| %>
-    <h2>HOST THE MATCH</h2>
+    <h2 style="font-size: 48px">HOST THE MATCH</h2>
     <%= m.input :title, placeholder: "Friendly game" %>
     <% if @venue %>
       <%= m.association :venue, selected: "#{@venue.id}" %>

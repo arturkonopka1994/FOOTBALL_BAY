@@ -11,6 +11,34 @@
   </div>
 <% end %>
 
+<div class="review-card" style="margin: 16px auto;">
+    <h2>Venue Details</h2>
+    <div class="d-flex justify-content-between">
+    <div class="">
+        <h3>Address:</h3>
+        <h5> <%= @venue.address_line_1.capitalize %></h5>
+        <h3>City:</h3>
+        <h5> <%= image_tag 'city_icon.png', style:" height: 42px" %> <%= @venue.city.capitalize %></h5> </h5>
+        <h3>Post Code:</h3>
+        <h5><%= image_tag '005-address.png', style:" height: 42px" %><%= @venue.post_code %></h5>
+      </div>
+      <div style="width: 400px">
+        <h3>Surface: </h3> 
+        <h5><%= @venue.surface %> <%= image_tag '004-pitch.png', style:"height: 50px" %></h5>
+        <h3>
+          Lights:
+        </h3>
+        <h5>
+          <% if @venue.floodlit %>
+            <h5>Yes <%= image_tag '001-tick.png', style:"height: 32px" %></h5>
+          <% else %>
+            <h5>No <%= image_tag '002-remove.png', style:"height: 32px" %></h5>
+          <% end %>
+        </h5>
+      </div>
+    </div>
+  </div>
+
 <div class="container">
   <div id="map-venueshow"
     style="width: 930px; height: 600px; margin: 16px auto;"
@@ -18,38 +46,15 @@
     data-mapbox-api-key="<%= ENV['MAPBOX_URL'] %>">
   </div>
   
-  <div class="review-card" style="margin: 16px auto;">
-    <h2>Venue Details</h2>
-    <div class="d-flex justify-content-between">
-    <div class="">
-        <h3>Address:</h3>
-        <p><%= @venue.address_line_1 %></p>
-        <h3>City:</h3>
-        <p><%= @venue.city.capitalize %></p>
-        <h3>Post Code:</h3>
-        <p><%= @venue.post_code %></p>
-      </div>
-      <div style="width: 400px">
-        <h3>Surface:</h3>
-        <p><%= @venue.surface %></p>
-        <h3>Lights:</h3>
-        <% if @venue.floodlit %>
-          <p>Yes</p>
-        <% else %>
-          <p>No</p>
-        <% end %>
-      </div>
-    </div>
-  </div>
   
-
+  
 
   <div class="review-card" style="margin: 16px auto">
     <section id="review-input">
       <h2>Reviews</h2>
       <%= simple_form_for [@venue, @review] do |r| %>
         <%= r.rich_text_area :content, placeholder: "Write your review here..." %>
-        <%= r.button :submit, class: "review-form-btn" %>
+        <%= r.button :submit, class: "button", style: "margin-top: 8px; margin-bottom: 0px" %>
       <% end %>
     </section>
 

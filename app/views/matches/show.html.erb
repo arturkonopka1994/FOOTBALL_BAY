@@ -43,10 +43,6 @@
           <%= link_to 'Book Match', match_bookings_path(@match), method: :post, class: "button", style: "width: 50%"  %>
         <% end %>
         <button id="show" class="button-secondary">Contact Host</button>
-        <div class="qrcode d-none">
-          <h2>Scan the QR to Contact the Host</h2>
-          <%= raw @qr.as_html %>
-        </div>
       </div>
     </div>
     <div id="map-venueshow"
@@ -55,4 +51,10 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_URL'] %>">
     </div>
   </div>
+  <div class="justify-content-center qrcode d-none" style="margin-left: 36%; margin-bottom: 16px">
+    <h2>Scan the QR to Contact the Host</h2>
+    <%= raw @qr.as_html %>
+  </div>
 </div>
+
+
