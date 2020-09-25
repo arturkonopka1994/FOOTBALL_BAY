@@ -52,10 +52,10 @@
 .cards_home1 {
   display: grid;
   grid-template-columns: auto auto auto;
-  gap: 64px;
+  gap: 18vw;
   justify-content: center;
-  margin-top: 32px;
-  margin-bottom: 32px;
+  margin-top: 64px;
+  // margin-bottom: 64px;
 }
 .cardss {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -65,12 +65,12 @@
   width: 184px;
  }
  .cardss1 {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  background-color: rgb(231, 231, 231);
-  border-radius: 4px;
-  margin-bottom: 16px;
+  // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  // background-color: rgb(231, 231, 231);
+  // border-radius: 4px;
+  // margin-bottom: 16px;
   width: 220px;
-  padding-bottom: 10px;
+  // padding-bottom: 10px;
   height: 400px;
  }
  .review-card {
