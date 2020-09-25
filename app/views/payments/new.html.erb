@@ -2,7 +2,7 @@
   <div class="row py-4" style="padding-left: 12.5%">
     <div class="col">
       <h1 class="text-center">Checkout summary</h1>
-      <div class="newcard dashboard", style="margin-top: 10%">
+      <div class="newcard dashboard", style="margin-top: 5%">
         <% name_of_user = @booking.match.user.email.partition("@").first %>
         <div>
           <img src="<%= cl_image_path @booking.match.venue.photo.key, height: 250, width: 300, crop: :fill, gravity: :auto %>" alt="venue picture" style="border-top-left-radius: 8px; border-bottom-left-radius: 8px;">
