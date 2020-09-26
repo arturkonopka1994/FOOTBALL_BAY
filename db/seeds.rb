@@ -216,7 +216,7 @@ puts "Users created"
 
 match_one = Match.create!(
     title: "Five a side game",
-    mobile_number: "+447398786653",
+    mobile_number: "+447531816616",
     skill_level: "Just for fun",
     no_of_players: "10 Players",
     description: 'Its a non competative game. We are playing in either black or whites. Im bringing a ball with me so dont worry :)',
@@ -227,7 +227,7 @@ match_one = Match.create!(
 
 match_two = Match.create!(
     title: "A fun game",
-    mobile_number: "+447398786653",
+    mobile_number: "+447531816616",
     skill_level: "Just for fun",
     no_of_players: "14 Players",
     description: 'Ive just moved to the area and want to make some friends. Please come along it will be fun!',
@@ -238,7 +238,7 @@ match_two = Match.create!(
 
 match_three = Match.create!(
     title: "Competitive Game",
-    mobile_number: "+447398786653",
+    mobile_number: "+447531816616",
     skill_level: "Try Hard",
     no_of_players: "10 Players",
     description: 'I want a good competative game of football. Please only join if you are experienced',
@@ -249,7 +249,7 @@ match_three = Match.create!(
 
 match_four = Match.create!(
     title: "Sunday fun match",
-    mobile_number: "+447398786653",
+    mobile_number: "+447531816616",
     skill_level: "Just for fun",
     no_of_players: "22 Players",
     description: 'The weather is meant to be good on sunday so Ive booked a pitch for 11 a side game. Anyone welcome!',
@@ -260,7 +260,7 @@ match_four = Match.create!(
     
 match_five = Match.create!(
     title: "Want to make Frinds",
-    mobile_number: "+447398786653",
+    mobile_number: "+447531816616",
     skill_level: "Just for fun",
     no_of_players: "10 Players",
     description: 'Im looking to make friends in the area, anyone can play',
@@ -271,7 +271,7 @@ match_five = Match.create!(
 
 match_six = Match.create!(
     title: "After work game",
-    mobile_number: "+447398786653",
+    mobile_number: "+447531816616",
     skill_level: "Try Hard",
     no_of_players: "14 Players",
     description: 'Ive booked a pitch in shepherds bush. Hope you can make it',
@@ -282,7 +282,7 @@ match_six = Match.create!(
 
 match_seven = Match.create!(
     title: "Local game",
-    mobile_number: "+447398786653",
+    mobile_number: "+447531816616",
     skill_level: "Just for fun",
     no_of_players: "14 Players",
     description: 'Hoping to get to know more people in my area',
@@ -293,7 +293,7 @@ match_seven = Match.create!(
 
 match_eight = Match.create!(
     title: "Pub league",
-    mobile_number: "+447398786653",
+    mobile_number: "+447531816616",
     skill_level: "Try Hard",
     no_of_players: "10 Players",
     description: 'This is for Shipyard pub team.',
@@ -304,7 +304,7 @@ match_eight = Match.create!(
 
 match_nine = Match.create!(
     title: "Kids match",
-    mobile_number: "+447398786653",
+    mobile_number: "+447531816616",
     skill_level: "Just for fun",
     no_of_players: "22 Players",
     description: 'Local game for kids to come and enjoy their sunday morning',
@@ -315,7 +315,7 @@ match_nine = Match.create!(
 
 match_ten = Match.create!(
     title: "Intense game",
-    mobile_number: "+447398786653",
+    mobile_number: "+447531816616",
     skill_level: "Try Hard",
     no_of_players: "10 Players",
     description: 'ONLY FOR THOSE PLAYERS WHO ARE FULLY COMMITTED TO TACKLES',
@@ -326,7 +326,7 @@ match_ten = Match.create!(
 
 match_eleven = Match.create!(
     title: "Friendly game",
-    mobile_number: "+447398786653",
+    mobile_number: "+447531816616",
     skill_level: "Just for fun",
     no_of_players: "14 Players",
     description: 'Please bring either a blue or red shirt!',
@@ -337,7 +337,7 @@ match_eleven = Match.create!(
 
 match_twelve = Match.create!(
     title: "Legends of the ball",
-    mobile_number: "+447398786653",
+    mobile_number: "+447531816616",
     skill_level: "Try Hard",
     no_of_players: "10 Players",
     description: 'I want a good competative game of football. Please only join if you are experienced',
@@ -348,7 +348,7 @@ match_twelve = Match.create!(
 
 match_thirteen = Match.create!(
     title: "4 4 2",
-    mobile_number: "+447398786653",
+    mobile_number: "+447531816616",
     skill_level: "Try Hard",
     no_of_players: "22 Players",
     description: 'Local game come and enjoy sunday morning',
@@ -359,7 +359,7 @@ match_thirteen = Match.create!(
 
 match_fourteen = Match.create!(
     title: "Mixed game",
-    mobile_number: "+447398786653",
+    mobile_number: "+447531816616",
     skill_level: "Just for fun",
     no_of_players: "14 Players",
     description: 'Im looking for a good game of football, male and female welcome',
@@ -370,7 +370,7 @@ match_fourteen = Match.create!(
 
 match_fifteen = Match.create!(
     title: "Five a side",
-    mobile_number: "+447398786653",
+    mobile_number: "+447531816616",
     skill_level: "Try Hard",
     no_of_players: "10 Players",
     description: 'I want a good competative game of football. Please only join if you are experienced',
@@ -381,7 +381,7 @@ match_fifteen = Match.create!(
 
 match_sixteen = Match.create!(
     title: "Anyone welcome",
-    mobile_number: "+447398786653",
+    mobile_number: "+447531816616",
     skill_level: "Just for fun",
     no_of_players: "14 Players",
     description: 'Looking for an enjoyable game. Anyone welcome!',
@@ -392,7 +392,7 @@ match_sixteen = Match.create!(
 
 match_seventeen = Match.create!(
     title: "Over 50's",
-    mobile_number: "+447398786653",
+    mobile_number: "+447531816616",
     skill_level: "Just for fun",
     no_of_players: "10 Players",
     description: 'Hoping to get some exercise and stretch my legs in my old age.',
@@ -403,7 +403,7 @@ match_seventeen = Match.create!(
 
 match_eighteen = Match.create!(
     title: "Girls 5 a side",
-    mobile_number: "+447398786653",
+    mobile_number: "+447531816616",
     skill_level: "Just for fun",
     no_of_players: "10 Players",
     description: 'Girls only. Any skill ranges welcome',
@@ -414,7 +414,7 @@ match_eighteen = Match.create!(
 
 match_nineteen = Match.create!(
     title: "Lunch Time game",
-    mobile_number: "+447398786653",
+    mobile_number: "+447531816616",
     skill_level: "Try Hard",
     no_of_players: "10 Players",
     description: 'I want a good competative game of football. Please only join if you are experienced',
@@ -425,7 +425,7 @@ match_nineteen = Match.create!(
 
 match_twenty = Match.create!(
     title: "No competative",
-    mobile_number: "+447398786653",
+    mobile_number: "+447531816616",
     skill_level: "Just for fun",
     no_of_players: "14 Players",
     description: 'I want a good none competative game of football. Please only join if you are want fun',
@@ -436,7 +436,7 @@ match_twenty = Match.create!(
 
 match_twentyone = Match.create!(
     title: "Five a side game",
-    mobile_number: "+447398786653",
+    mobile_number: "+447531816616",
     skill_level: "Just for fun",
     no_of_players: "10 Players",
     description: 'Its a non competative game. We are playing in either black or whites. Im bringing a ball with me so dont worry :)',
@@ -447,7 +447,7 @@ match_twentyone = Match.create!(
 
 match_twentytwo = Match.create!(
     title: "A fun game",
-    mobile_number: "+447398786653",
+    mobile_number: "+447531816616",
     skill_level: "Just for fun",
     no_of_players: "14 Players",
     description: 'Ive just moved to the area and want to make some friends. Please come along it will be fun!',
