@@ -1,69 +1,66 @@
 // Import page-specific CSS files here.
 @import "home";
-
 .content-match {
-  display: flex;
-  margin-top: 20px;
-  margin-left: 20px;
+    display: flex;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
 .background-match {
-  background-image: url("https://images.unsplash.com/flagged/photo-1571771710019-ca58cf80f225?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80");
-  background-attachment: fixed;
-  background-position: center;
-  height: 1400px;
+    background-image: url("https://images.unsplash.com/flagged/photo-1571771710019-ca58cf80f225?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80");
+    background-attachment: fixed;
+    background-position: center;
+    height: 1400px;
 }
 
-
 .delete_match {
-  color: #1FE378;
+    color: #1FE378;
 }
 
 .edit_match {
-  color: #1FE378;
+    color: #1FE378;
 }
 
 body {
-  background-color: rgba(240, 240, 240, 0.425);
+    background-color: rgba(240, 240, 240, 0.425);
 }
 
 h1 {
-  font-family: 'Bebas Neue', cursive;
-  font-size: 100px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 100px;
 }
 
 h2 {
-  font-family: 'Bebas Neue', cursive;
+    font-family: 'Bebas Neue', cursive;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 #nav_title {
-  position: absolute;
-  padding-left: 55px;
-  padding-top: 13px;
+    position: absolute;
+    padding-left: 55px;
+    padding-top: 13px;
 }
 
 .venuet {
-  font-size: 48px;
+    font-size: 48px;
 }
 
-
 .match-confirmation {
-  font-weight: lighter;
-  color: black;
-  background-color: #2CFF8B;
-  position: absolute;
-  bottom: 50px;
-  right: 50px;
-  border-radius: 8px;
-  padding: 16px;
+    font-weight: lighter;
+    color: black;
+    background-color: #2CFF8B;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 8px;
+    padding: 16px;
 }
 
 .price_booking_show {
-  position: absolute;
-  bottom: 15px;
-  right: 10px;
+    position: absolute;
+    bottom: 15px;
+    right: 10px;
 }
