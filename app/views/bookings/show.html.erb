@@ -1,4 +1,4 @@
-<div class="row py-auto" style="min-height: calc(100vh - 25vh);">
+<div class="row py-auto" style="min-height: calc(100vh - 50vh);">
     <div class="col-md-2"></div>
     <div class="col text-center">
       <h1 class="show_match text-center"> Booking confirmation</h1>
@@ -15,10 +15,29 @@
             <p><%= @booking.match.venue.post_code %></p>
             <p><strong><%= @booking.match.no_of_players/2 %> a side</strong> game by <%= name_of_user %></p>
           </div>
-          
+          <li class="price_booking_show"><strong>Total</strong> <%= humanized_money_with_symbol @booking.match.venue.price %></li>
         </div>
       </ul>
     </div>
     <div class="col-md-1"></div>
+  </div>
+</div>
+<div class="col text-center" style="margin-top: 50px">
+  <div class="col-md-2"></div>
+  
+  <ul class="list-unstyled">
+    <% name_of_user = @booking.match.user.email.partition("@").first %>
+    <h1 class="show_match text-center", style="margin-left: 160px">Golden rules</h1>
+    <div class="card-long-vertical text-justify" style="margin-left: 160px">
+      <div style="margin-left:48px; margin-right:48px; width: 800px; ">
+        <ol>
+          <li>Ensure that you respect one another <%= image_tag 'respect.png', style:"height: 50px" %></li>
+          <li>Any kind of aggressive behaviour will NOT be tolerated <%= image_tag 'aggressive.png', style:"height: 50px" %></li>
+          <li>Keep everyone involved and be positive with your teammates <%= image_tag 'teamwork.png', style:"height: 50px" %></li>
+        </ol>
+      </div>
+    </div>
+  </ul>
+  <div class="col-md-1"></div>
   </div>
 </div>
