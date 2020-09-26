@@ -17,6 +17,7 @@ td {
 }
 .qrcode {
   margin-bottom: 100px;
+  flex-direction: column;
 }
 td.black { border-color: #000; }
 td.white { border-color: #fff; }
