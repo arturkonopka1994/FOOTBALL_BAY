@@ -26,19 +26,12 @@
   <div class="container">
     <div class="form-search">
       <ul class="list-inline d-flex justify-content-center white-text"> 
-        <li class="list-inline-item" style="margin-right: 112px;">
-          <%= form_tag matches_path, method: :get do %>
-          <%= text_field_tag :by_address,
-            params[:by_address],
-            class: "form-control",
-            placeholder: "Postcode or City", 
-            style: "width: 400px; height: 46px; border-radius: 8px; text-align: center; justify-content: center"
-          %>
-        </li>
-        <li class="list-inline-item">
-          <%= submit_tag "Search For The Game", class: "btn button button-match btn-lg list-inline", style: "width: 400px;" %>
-          <% end %>
-        </li>
+        <%= form_tag matches_path, method: :get do %>
+          <li class="list-inline-item"><%= text_field_tag :by_address, params[:by_address], class: "form-control", placeholder: "Postcode or City", style: "width: 400px; height: 46px; border-radius: 8px; text-align: center; justify-content: center; margin-bottom: 0px;"%></li>    
+          <li class="list-inline-item">
+            <%= submit_tag "Search For The Game", class: "btn button button-match btn-lg list-inline", style: "width: 400px; margin-bottom: 0px; margin-left: 150px" %>
+          </li>
+        <% end %>
       </ul>
       <ul class="list-inline d-flex justify-content-around white-text">
         <li class="list-inline-item">
