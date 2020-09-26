@@ -197,6 +197,8 @@ venue_eighteen.photo.attach(io: File.open("app/assets/images/pitches/eighteen.jp
 
 puts "Venues created"
 
+
+
 user_one = User.create!(email: "j.terry@gmail.com",
   password: "123456")
 
@@ -211,6 +213,8 @@ user_four = User.create!(email: "f.lampard@gmail.com",
 
 user_five = User.create!(email: "ben.watson@gmail.com",
   password: "123456")
+
+array = [user_one.id,user_two.id,user_three.id,user_four.id] 
 
 puts "Users created"
 
@@ -473,7 +477,7 @@ puts "created previous booking for ben"
 Match.all.each do |match|
    rand(3..9).times do 
     Booking.create!(
-        user: User.all.sample,
+        user_id: array.sample,
         match: match
     )
    end
