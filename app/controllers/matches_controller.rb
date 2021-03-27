@@ -86,7 +86,7 @@ class MatchesController < ApplicationController
   end
 
   private
-
+# strong params for security
   def match_params
     params.require(:match).permit(:skill_level, :no_of_players, :start_time, :end_time,
     :description, :gender, :venue_id, :title, :photo, :mobile_number)
