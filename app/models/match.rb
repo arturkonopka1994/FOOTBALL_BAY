@@ -24,12 +24,13 @@ class Match < ApplicationRecord
       tsearch: { prefix: true }
     }
 
-def valid_venue_time?
-  valid_time = self.venue.matches.all? do |match|
-    !(match.start_time >= self.start_time && match.start_time <= self.end_time || match.end_time >= self.start_time && match.end_time <= self.end_time)
+  # checks if the booking time is valid, so you cannot book in the past
+  def valid_venue_time?
+    valid_time = self.venue.matches.all? do |match|
+      !(match.start_time >= self.start_time && match.start_time <= self.end_time || match.end_time >= self.start_time && match.end_time <= self.end_time)
+    end
+    errors.add(:start_time, "The venue is not available for this time") unless valid_time
   end
-  errors.add(:start_time, "The venue is not available for this time") unless valid_time
-end
 
   def players
     users

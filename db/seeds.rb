@@ -5,14 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-Venue.destroy_all
+# destroy the venues only if in development * this is for the live app 
+Venue.destroy_all if Rails.env.development?
 puts "Venues destroyed"
 
-User.destroy_all
+User.destroy_all if Rails.env.development?
 puts "Users destroyed"
 
-Match.destroy_all
+Match.destroy_all if Rails.env.development?
 puts "Match destroyed"
 
 venue_one = Venue.create!(name: "Hire A Pitch",

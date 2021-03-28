@@ -7,14 +7,14 @@ class Venue < ApplicationRecord
   monetize :price_cents
 
 	validates :city, :post_code, :surface, presence: true
-
+	# usage of geocoder gem for search form
 	geocoded_by :full_address
 	after_validation :geocode, if: :will_save_change_to_address_line_1?
 	after_validation :geocode, if: :will_save_change_to_address_line_2?
 	after_validation :geocode, if: :will_save_change_to_city?
 	after_validation :geocode, if: :will_save_change_to_post_code?
 
-
+# converts splitted address into full_address, needed for geocoder
 	def full_address
 		address_line_1 = self.address_line_1
 		address_line_2 = self.address_line_2

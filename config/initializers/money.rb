@@ -1,5 +1,5 @@
 # encoding : utf-8
-
+# payment feature
 Money.locale_backend = :currency
 
 MoneyRails.configure do |config|

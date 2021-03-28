@@ -3,9 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 gem 'money-rails'
-
+#payment service
 gem 'stripe'
-
+#Stripe webhook integration for Rails applications.
 gem 'stripe_event'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -29,18 +29,20 @@ gem 'redis', '~> 4.0'
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
-
+# dotenv for storage of keys
 gem 'dotenv-rails', groups: [:developement, :test]
 
 # photos features
 gem 'cloudinary', '~> 1.17'
 # PG Search
 gem 'pg_search', '~> 2.3.0'
+# geocoder for geolocation
 gem 'geocoder'
+# encoding of qr code
 gem 'rqrcode'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-
+# devise for user authentication
 gem 'devise'
 
 gem 'autoprefixer-rails'
